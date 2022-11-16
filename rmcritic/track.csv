@@ -1,0 +1,893 @@
+id,name,parent_album,place_in_tracklist,featuring,parent_artist
+1,Vision of Love,1,1,,26
+2,There's Got to Be a Way,1,2,,26
+3,I Don't Wanna Cry,1,3,,26
+4,Someday,1,4,,26
+5,Vanishing,1,5,,26
+6,All in Your Mind,1,6,,26
+7,Alone in Love,1,7,,26
+8,You Need Me,1,8,,26
+9,Sent from Up Above,1,9,,26
+10,Prisoner,1,10,,26
+11,Love Takes Time,1,11,,26
+12,Imagine,2,1,,4
+13,Needy,2,2,,4
+14,NASA,2,3,,4
+15,Bloodline,2,4,,4
+16,Fake Smile,2,5,,4
+17,Bad Idea,2,6,,4
+18,Make Up,2,7,,4
+19,Ghostin,2,8,,4
+20,In My Head,2,9,,4
+21,7 Rings,2,10,,4
+22,"Thank U, Next",2,11,,4
+23,"Break Up with Your Girlfriend, I'm Bored",2,12,,4
+24,Piano & I,3,1,,2
+25,Girlfriend,3,2,,2
+26,How Come You Don't Call Me,3,3,,2
+27,Fallin',3,4,,2
+28,Troubles,3,5,,2
+29,Rock wit U,3,6,,2
+30,A Woman's Worth,3,7,,2
+31,Jane Doe,3,8,,2
+32,Goodbye,3,9,,2
+33,The Life,3,10,,2
+34,Mr. Man,3,11,Jimmy Cozier,2
+35,Never Felt This Way (interlúdio),3,12,,2
+36,Butterflyz,3,13,,2
+37,Why Do I Feel So Sad,3,14,,2
+38,Caged Bird,3,15,,2
+39,Lovin U,3,16,,2
+40,More More More,4,1,,20
+41,Love at First Sight,4,2,,20
+42,Can't Get You Out of My Head,4,3,,20
+43,Fever,4,4,,20
+44,Give It to Me,4,5,,20
+45,Fragile,4,6,,20
+46,Come into My World,4,7,,20
+47,In Your Eyes,4,8,,20
+48,Dancefloor,4,9,,20
+49,Love Affair,4,10,,20
+50,Your Love,4,11,,20
+51,Burning Up,4,12,,20
+52,Aura,5,1,,21
+53,Venus,5,2,,21
+54,G.U.Y.,5,3,,21
+55,Sexxx Dreams,5,4,,21
+56,Jewels n' Drugs,5,5,"T.I., Too Short, Twista",21
+57,Manicure,5,6,,21
+58,Do What U Want,5,7,R. Kelly,21
+59,Artpop,5,8,,21
+60,Swine,5,9,,21
+61,Donatella,5,10,,21
+62,Fashion!,5,11,,21
+63,Mary Jane Holland,5,12,,21
+64,Dope,5,13,,21
+65,Gypsy,5,14,,21
+66,Applause,5,15,,21
+67,State of Grace,6,1,,36
+68,Red,6,2,,36
+69,Treacherous,6,3,,36
+70,I Knew You Were Trouble.,6,4,,36
+71,All Too Well,6,5,,36
+72,22,6,6,,36
+73,I Almost Do,6,7,,36
+74,We Are Never Ever Getting Back Together,6,8,,36
+75,Stay Stay Stay,6,9,,36
+76,The Last Time,6,10,Gary Lightbody,36
+77,Holy Ground,6,11,,36
+78,Sad Beautiful Tragic,6,12,,36
+79,The Lucky One,6,13,,36
+80,Everything Has Changed,6,14,Ed Sheeran,36
+81,Starlight,6,15,,36
+82,Begin Again,6,16,,36
+83,Intro,7,1,,4
+84,Problem,7,2,Iggy Azalea,4
+85,One Last Time,7,3,,4
+86,Why Try,7,4,,4
+87,Break Free,7,5,Zedd,4
+88,Best Mistake,7,6,Big Sean,4
+89,Be My Baby,7,7,Cashmere Cat,4
+90,Break Your Heart Right Back,7,8,Childish Gambino,4
+91,Love Me Harder,7,9,The Weeknd,4
+92,Just a Little Bit of Your Heart,7,10,,4
+93,Hands on Me,7,11,ASAP Ferg,4
+94,My Everything,7,12,,4
+95,Gimme More,8,1,,8
+96,Piece of Me,8,2,,8
+97,Radar,8,3,,8
+98,Break the Ice,8,4,,8
+99,Heaven on Earth,8,5,,8
+100,Get Naked (I Got a Plan),8,6,,8
+101,Freakshow,8,7,,8
+102,Toy Soldier,8,8,,8
+103,Hot as Ice,8,9,,8
+104,Ooh Ooh Baby,8,10,,8
+105,Perfect Lover,8,11,,8
+106,Why Should I Be Sad,8,12,,8
+107,Dirty Computer,9,1,Brian Wilson,15
+108,"Crazy, Classic, Life",9,2,,15
+109,Take a Byte,9,3,,15
+110,Screwed,9,4,Zoë Kravitz,15
+111,Django Jane,9,5,,15
+112,Pynk,9,6,Grimes,15
+113,Make Me Feel,9,7,,15
+114,I Got the Juice,9,8,Pharrell Williams,15
+115,I Like That,9,9,,15
+116,Don't Judge Me,9,10,,15
+117,So Afraid,9,11,,15
+118,Americans,9,12,,15
+119,Young Girls,10,1,,9
+120,Locked Out of Heaven,10,2,,9
+121,Gorilla,10,3,,9
+122,Treasure,10,4,,9
+123,Moonshine,10,5,,9
+124,When I Was Your Man,10,6,,9
+125,Natalie,10,7,,9
+126,Show Me,10,8,,9
+127,Money Make Her Smile,10,9,,9
+128,If I Knew,10,10,,9
+129,Younger Now,11,1,,28
+130,Malibu,11,2,,28
+131,Rainbowland,11,3,Dolly Parton,28
+132,Week Without You,11,4,,28
+133,Miss You So Much,11,5,,28
+134,I Would Die for You,11,6,,28
+135,Thinkin',11,7,,28
+136,Bad Mood,11,8,,28
+137,Love Someone,11,9,,28
+138,She's Not Him,11,10,,28
+139,Inspired,11,11,,28
+140,Drowned World/Substitute For Love,12,1,,25
+141,Swim,12,2,,25
+142,Ray of Light,12,3,,25
+143,Candy Perfume Girl,12,4,,25
+144,Skin,12,5,,25
+145,Nothing Really Matters,12,6,,25
+146,Sky Fits Heaven,12,7,,25
+147,Shanti/Ashtangi,12,8,,25
+148,Frozen,12,9,,25
+149,The Power of Good-Bye,12,10,,25
+150,To Have and Not to Hold,12,11,,25
+151,Little Star,12,12,,25
+152,Mer Girl,12,13,,25
+153,Moonlight,13,1,,4
+154,Dangerous Woman,13,2,,4
+155,Be Alright,13,3,,4
+156,Into You,13,4,,4
+157,Side to Side,13,5,Nicki Minaj,4
+158,Let Me Love You,13,6,Lil Wayne,4
+159,Greedy,13,7,,4
+160,Leave Me Lonely,13,8,Macy Gray,4
+161,Everyday,13,9,Future,4
+162,Sometimes,13,10,,4
+163,I Don't Care,13,11,,4
+164,Bad Decisions,13,12,,4
+165,Touch It,13,13,,4
+166,Knew Better / Forever Boy,13,14,,4
+167,Thinking Bout You,13,15,,4
+168,Migrate,14,1,T-Pain,26
+169,Touch My Body,14,2,,26
+170,Cruise Control,14,3,Damian Marley,26
+171,I Stay in Love,14,4,,26
+172,Side Effects,14,5,Young Jeezy,26
+173,I'm That Chick,14,6,,26
+174,Love Story,14,7,,26
+175,I'll Be Lovin' U Long Time,14,8,,26
+176,Last Kiss,14,9,,26
+177,Thanx 4 Nothin',14,10,,26
+178,O.O.C.,14,11,,26
+179,For the Record,14,12,,26
+180,Bye Bye,14,13,,26
+181,I Wish You Well,14,14,,26
+182,Veneno,15,1,,3
+183,Não Perco Meu Tempo,15,2,,3
+184,Goals,15,3,,3
+185,Woman Like Me,16,1,Nicki Minaj,23
+186,Think About Us,16,2,,23
+187,Strip,16,3,Sharaya J,23
+188,Monster in Me,16,4,,23
+189,Joan of Arc,16,5,,23
+190,Love a Girl Right,16,6,,23
+191,American Boy,16,7,,23
+192,Told You So,16,8,,23
+193,Wasabi,16,9,,23
+194,More Than Words,16,10,Kamille,23
+195,Motivate,16,11,,23
+196,Notice,16,12,,23
+197,The Cure,16,13,,23
+198,Forget You Not,16,14,,23
+199,Woman's World,16,15,,23
+200,Revival,17,1,,35
+201,Kill Em with Kindness,17,2,,35
+202,Hands to Myself,17,3,,35
+203,Same Old Love,17,4,,35
+204,Sober,17,5,,35
+205,Good for You,17,6,ASAP Rocky,35
+206,Camouflage,17,7,,35
+207,Me & the Rhythm,17,8,,35
+208,Survivors,17,9,,35
+209,Body Heat,17,10,,35
+210,Rise,17,11,,35
+211,Me & My Girls,17,12,,35
+212,Nobody,17,13,,35
+213,Perfect,17,14,,35
+214,Rare,18,1,,35
+215,Dance Again,18,2,,35
+216,Look At Her Now,18,3,,35
+217,Lose You to Love Me,18,4,,35
+218,Ring,18,5,,35
+219,Vulnerable,18,6,,35
+220,People You Know,18,7,,35
+221,Let Me Get Me,18,8,,35
+222,Crowded Room,18,9,6lack,35
+223,Kinda Crazy,18,10,,35
+224,Fun,18,11,,35
+225,Cut You Off,18,12,,35
+226,A Sweeter Place,18,13,Kid Cudi,35
+227,Welcome to New York,19,1,,36
+228,Blank Space,19,2,,36
+229,Style,19,3,,36
+230,Out of the Woods,19,4,,36
+231,All You Had to Do Was Stay,19,5,,36
+232,Shake It Off,19,6,,36
+233,I Wish You Would,19,7,,36
+234,Bad Blood,19,8,,36
+235,Wildest Dreams,19,9,,36
+236,How You Get the Girl,19,10,,36
+237,This Love,19,11,,36
+238,I Know Places,19,12,,36
+239,Clean,19,13,,36
+240,...Ready for It?,20,1,,36
+241,End Game,20,2,"Ed Sheeran, Future",36
+242,I Did Something Bad,20,3,,36
+243,Don't Blame Me,20,4,,36
+244,Delicate,20,5,,36
+245,Look What You Made Me Do,20,6,,36
+246,So It Goes...,20,7,,36
+247,Gorgeous,20,8,,36
+248,Getaway Car,20,9,,36
+249,King of My Heart,20,10,,36
+250,Dancing with Our Hands Tied,20,11,,36
+251,Dress,20,12,,36
+252,This Is Why We Can't Have Nice Things,20,13,,36
+253,Call It What You Want,20,14,,36
+254,New Year's Day,20,15,,36
+255,I Forgot That You Existed,21,1,,36
+256,Cruel Summer,21,2,,36
+257,Lover,21,3,,36
+258,The Man,21,4,,36
+259,The Archer,21,5,,36
+260,I Think He Knows,21,6,,36
+261,Miss Americana & the Heartbreak Prince,21,7,,36
+262,Paper Rings,21,8,,36
+263,Cornelia Street,21,9,,36
+264,Death by a Thousand Cuts,21,10,,36
+265,London Boy,21,11,,36
+266,Soon You'll Get Better,21,12,Dixie Chicks,36
+267,False God,21,13,,36
+268,You Need to Calm Down,21,14,,36
+269,Afterglow,21,15,,36
+270,Me!,21,16,Brendon Urie do Panic! at the Disco,36
+271,It's Nice to Have a Friend,21,17,,36
+272,Daylight,21,18,,36
+273,Flash Pose,22,1,Charli XCX,30
+274,Parabéns,22,2,Psirico,30
+275,Amor de Que,22,3,,30
+276,Ponte Perra,22,4,,30
+277,Buzina,23,1,,30
+278,Seu Crime,23,2,,30
+279,Problema Seu,23,3,,30
+280,Disk Me,23,4,,30
+281,Não Vou Deitar,23,5,,30
+282,Ouro,23,6,Urias,30
+283,Trago Seu Amor de Volta,23,7,Dilsinho,30
+284,Vai Embora,23,8,Ludmilla,30
+285,No hablo español,23,9,,30
+286,Miragem,23,10,,30
+287,Marry the Night,24,1,,21
+288,Born This Way,24,2,,21
+289,Government Hooker,24,3,,21
+290,Judas,24,4,,21
+291,Americano,24,5,,21
+292,Hair,24,6,,21
+293,Scheiße,24,7,,21
+294,Bloody Mary,24,8,,21
+295,Bad Kids,24,9,,21
+296,Highway Unicorn (Road to Love),24,10,,21
+297,Heavy Metal Lover,24,11,,21
+298,Electric Chapel,24,12,,21
+299,Yoü and I,24,13,,21
+300,The Edge of Glory,24,14,,21
+301,Norman Fucking Rockwell,25,1,,22
+302,Mariners Apartment Complex,25,2,,22
+303,Venice Bitch,25,3,,22
+304,"Fuck It, I Love You",25,4,,22
+305,Doin' Time,25,5,,22
+306,Love Song,25,6,,22
+307,Cinnamon Girl,25,7,,22
+308,How To Disappear,25,8,,22
+309,California,25,9,,22
+310,The Next Best American Record,25,10,,22
+311,The Greatest,25,11,,22
+312,Bartender,25,12,,22
+313,Happiness Is A Butterfly,25,13,,22
+314,Hope Is a Dangerous Thing for a Woman Like Me to Have – but I Have It,25,14,,22
+315,Blazed,26,1,Pharrell Williams,4
+316,The Light Is Coming,26,2,Nicki Minaj,4
+317,R.E.M,26,3,,4
+318,God Is a Woman,26,4,,4
+319,Sweetener,26,5,,4
+320,Successful,26,6,,4
+321,Everytime,26,7,,4
+322,Breathin,26,8,,4
+323,No Tears Left to Cry,26,9,,4
+324,Borderline,26,10,Missy Elliott,4
+325,Better Off,26,11,,4
+326,Goodnight n Go,26,12,,4
+327,Get Well Soon,26,13,,4
+328,Witness,27,1,,17
+329,Hey Hey Hey,27,2,,17
+330,Roulette,27,3,,17
+331,Swish Swish,27,4,Nicki Minaj,17
+332,Déjà Vu,27,5,,17
+333,Power,27,6,,17
+334,Mind Maze,27,7,,17
+335,Miss You More,27,8,,17
+336,Chained to the Rhythm,27,9,Skip Marley,17
+337,Tsunami,27,10,,17
+338,Bon Appétit,27,11,Migos,17
+339,Bigger Than Me,27,12,,17
+340,Save as Draft,27,13,,17
+341,Pendulum,27,14,,17
+342,Into Me You See,27,15,,17
+343,My Life Would Suck Without You,28,1,,18
+344,I Do Not Hook Up,28,2,,18
+345,Cry,28,3,,18
+346,Don't Let Me Stop You,28,4,,18
+347,All I Ever Wanted,28,5,,18
+348,Already Gone,28,6,,18
+349,If I Can't Have You,28,7,,18
+350,Save You,28,8,,18
+351,Whyyawannabrigmedown,28,9,,18
+352,Long Shot,28,10,,18
+353,Impossible,28,11,,18
+354,Ready,28,12,,18
+355,I Want You,28,13,,18
+356,If No One Will Listen,28,14,,18
+357,Future Nostalgia,29,1,,12
+358,Don't Start Now,29,2,,12
+359,Cool,29,3,,12
+360,Physical,29,4,,12
+361,Levitating,29,5,,12
+362,Pretty Please,29,6,,12
+363,Hallucinate,29,7,,12
+364,Love Again,29,8,,12
+365,Break My Heart,29,9,,12
+366,Good in Bed,29,10,,12
+367,Boys Will Be Boys,29,11,,12
+368,Parabéns,30,1,Psirico,30
+369,Tímida,30,2,Thalía,30
+370,Lovezinho,30,3,Ivete Sangalo,30
+371,Amor de Que,30,4,,30
+372,Salvaje,30,5,,30
+373,Flash Pose,30,6,Charli XCX,30
+374,Clima Quente,30,7,Jerry Smith,30
+375,Ponte Perra,30,8,,30
+376,Rajadão,30,9,,30
+377,Next Level Charli,31,1,,10
+378,Gone,31,2,Christine and the Queens,10
+379,Cross You Out,31,3,Sky Ferreira,10
+380,1999,31,4,Troye Sivan,10
+381,Click,31,5,"Kim Petras, Tommy Cash",10
+382,Warm,31,6,Haim,10
+383,Thoughts,31,7,,10
+384,Blame It on Your Love,31,8,Lizzo,10
+385,White Mercedes,31,9,,10
+386,Silver Cross,31,10,,10
+387,I Don't Wanna Know,31,11,,10
+388,Official,31,12,,10
+389,Shake It,31,13,"Big Freedia, CupcakKe, Brooke Candy, Pabllo Vittar",10
+390,February 2017,31,14,"Clairo, Yaeji",10
+391,2099,31,15,Troye Sivan,10
+392,Ordinary Superstar,32,1,,32
+393,Take Me as I Am,32,2,,32
+394,10-20-40,32,3,,32
+395,Tunnel Vision,32,4,Shamir,32
+396,Alterlife,32,5,,32
+397,Cyber Stockholm Syndrome,32,6,,32
+398,Dynasty,33,1,,32
+399,XS,33,2,,32
+400,STFU!,33,3,,32
+401,Comme des Garçons (Like the Boys),33,4,,32
+402,Akasaka Sad,33,5,,32
+403,Paradisin',33,6,,32
+404,Love Me 4 Me,33,7,,32
+405,Bad Friend,33,8,,32
+406,Fuck This World,33,9,,32
+407,Who's Gonna Save U Now?,33,10,,32
+408,Tokyo Love Hotel,33,11,,32
+409,Chosen Family,33,12,,32
+410,Snakeskin,33,13,,32
+411,Roar,34,1,,17
+412,Legendary Lovers,34,2,,17
+413,Birthday,34,3,,17
+414,Walking on Air,34,4,,17
+415,Unconditionally,34,5,,17
+416,Dark Horse,34,6,Juicy J,17
+417,This Is How We Do,34,7,,17
+418,International Smile,34,8,,17
+419,Ghost,34,9,,17
+420,Love Me,34,10,,17
+421,This Moment,34,11,,17
+422,Double Rainbow,34,12,,17
+423,By the Grace of God,34,13,,17
+424,Wild,35,1,,38
+425,Bite,35,2,,38
+426,Fools,35,3,,38
+427,Ease,35,4,Broods,38
+428,The Quiet,35,5,,38
+429,DKLA,35,6,Tkay Maidza,38
+430,Talk Me Down,35,7,,38
+431,Cool,35,8,,38
+432,Heaven,35,9,Betty Who,38
+433,Youth,35,10,,38
+434,Lost Boy,35,11,,38
+435,For Him.,35,12,Allday,38
+436,Suburbia,35,13,,38
+437,Too Good,35,14,,38
+438,Blue,35,15,Alex Hope,38
+439,Honeymoon Avenue,36,1,,4
+440,Baby I,36,2,,4
+441,Right There,36,3,Big Sean,4
+442,Tattooed Heart,36,4,,4
+443,Lovin' It,36,5,,4
+444,Piano,36,6,,4
+445,Daydreamin',36,7,,4
+446,The Way,36,8,Mac Miller,4
+447,You'll Never Know,36,9,,4
+448,Almost is Never Enough,36,10,Nathan Sykes do The Wanted,4
+449,Popular Song,36,11,Mika,4
+450,Better Left Unsaid,36,12,,4
+451,Bad Guy,37,1,,6
+452,Xanny,37,2,,6
+453,You Should See Me in a Crown,37,3,,6
+454,All the Good Girls Go to Hell,37,4,,6
+455,Wish You Were Gay,37,5,,6
+456,When the Party's Over,37,6,,6
+457,8,37,7,,6
+458,My Strange Addiction,37,8,,6
+459,Bury a Friend,37,9,,6
+460,Ilomilo,37,10,,6
+461,Listen Before I Go,37,11,,6
+462,I Love You,37,12,,6
+463,Goodbye,37,13,,6
+464,GTFO,38,1,,26
+465,With You,38,2,,26
+466,Caution,38,3,,26
+467,A No No,38,4,,26
+468,The Distance,38,5,Ty Dolla Sign,26
+469,Giving Me Life,38,6,"Slick Rick, Blood Orange",26
+470,One Mo' Gen,38,7,,26
+471,8th Grade,38,8,,26
+472,Stay Long Love You,38,9,Gunna,26
+473,Portrait,38,10,,26
+474,Hung Up,39,1,,25
+475,Get Together,39,2,,25
+476,Sorry,39,3,,25
+477,Future Lovers,39,4,,25
+478,I Love New York,39,5,,25
+479,Let It Will Be,39,6,,25
+480,Forbidden Love,39,7,,25
+481,Jump,39,8,,25
+482,How High,39,9,,25
+483,Isaac,39,10,,25
+484,Push,39,11,,25
+485,Like It or Not,39,12,,25
+486,Consideration,40,1,SZA,31
+487,James Joint,40,2,,31
+488,Kiss It Better,40,3,,31
+489,Work,40,4,Drake,31
+490,Desperado,40,5,,31
+491,Woo,40,6,,31
+492,Needed Me,40,7,,31
+493,"Yeah, I Said It",40,8,,31
+494,Same Ol' Mistakes,40,9,,31
+495,Never Ending,40,10,,31
+496,Love on the Brain,40,11,,31
+497,Higher,40,12,,31
+498,Close to You,40,13,,31
+499,Goodnight Gotham,40,14,,31
+500,Pose,40,15,,31
+501,Sex with Me,40,16,,31
+502,Ginga,41,1,Rincon Sapiência,14
+503,Bateu,41,2,Ruxell,14
+504,Pesadão,41,3,Marcelo Falcão,14
+505,Corda Bamba,41,4,Ivete Sangalo,14
+506,Rebola,41,5,"Carlinhos Brown, Gloria Groove",14
+507,Saudade Daquilo,41,6,,14
+508,Engano Seu,41,7,,14
+509,É Noix,41,8,Thiaguinho,14
+510,Toda Sua,41,9,,14
+511,Você Não Vive Sem,41,10,,14
+512,Dona de Mim,41,11,,14
+513,Lado B,41,12,,14
+514,No Ponto,41,13,,14
+515,Linha de Frente,41,14,,14
+516,Invitation,42,1,,8
+517,Do You Wanna Come Over?,42,2,,8
+518,Make Me...,42,3,G-Eazy,8
+519,Private Show,42,4,,8
+520,Man on the Moon,42,5,,8
+521,Just Luv Me,42,6,,8
+522,Clumsy,42,7,,8
+523,Slumber Party,42,8,,8
+524,Just Like Me,42,9,,8
+525,Love Me Down,42,10,,8
+526,Hard to Forget Ya,42,11,,8
+527,What You Need,42,12,,8
+528,Better,42,13,,8
+529,Change Your Mind (No Seas Cortes),42,14,,8
+530,Liar,42,15,,8
+531,If I'm Dancing,42,16,,8
+532,Coupure Électrique,42,17,,8
+533,Alice,43,1,,21
+534,Stupid Love,43,2,,21
+535,Rain on Me,43,3,Ariana Grande,21
+536,Free Woman,43,4,,21
+537,Fun Tonight,43,5,,21
+538,911,43,6,,21
+539,Plastic Doll,43,7,,21
+540,Sour Candy,43,8,Blackpink,21
+541,Enigma,43,9,,21
+542,Replay,43,10,,21
+543,Sine from Above,43,11,Elton John,21
+544,1000 Doves,43,12,,21
+545,Babylon,43,13,,21
+546,Kiss & Tell,44,1,,35
+547,I Won't Apologize,44,2,,35
+548,Falling Down,44,3,,35
+549,I Promise You,44,4,,35
+550,Crush,44,5,,35
+551,Naturally,44,6,,35
+552,The Way I Loved You,44,7,,35
+553,More,44,8,,35
+554,As A Blonde,44,9,,35
+555,I Don't Miss You At All,44,10,,35
+556,Stop & Erase,44,11,,35
+557,I Got U,44,12,,35
+558,Tell Me Something I Don't Know,44,13,,35
+559,Rolling in the Deep,45,1,,1
+560,Rumour Has It,45,2,,1
+561,Turning Tables,45,3,,1
+562,Don't You Remember,45,4,,1
+563,Set Fire to the Rain,45,5,,1
+564,He Won't Go,45,6,,1
+565,Take It All,45,7,,1
+566,I'll Be Waiting,45,8,,1
+567,One and Only,45,9,,1
+568,Lovesong,45,10,,1
+569,Someone like You,45,11,,1
+570,Your Love Is My Drug,46,1,,19
+571,Tik Tok,46,2,,19
+572,Take It Off,46,3,,19
+573,Kiss N Tell,46,4,,19
+574,Stephen,46,5,,19
+575,Blah Blah Blah,46,6,3OH!3,19
+576,Hungover,46,7,,19
+577,Party At A Rich Dude's House,46,8,,19
+578,Backstabber,46,9,,19
+579,Blind,46,10,,19
+580,Dinosaur,46,11,,19
+581,Dancing With Tears In My Eyes,46,12,,19
+582,Boots & Boys,46,13,,19
+583,Animal,46,14,,19
+584,Cannibal,47,1,,19
+585,We R Who We R,47,2,,19
+586,Sleazy,47,3,,19
+587,Blow,47,4,,19
+588,The Harold Song,47,5,,19
+589,Crazy Beautiful Life,47,6,,19
+590,Grow a Pear,47,7,,19
+591,C U Next Tuesday,47,8,,19
+592,Entre El Mar Y Una Estrella,48,1,,37
+593,Regresa a mí,48,2,,37
+594,Reencarnación,48,3,,37
+595,Arrasando,48,4,,37
+596,No hay que llorar,48,5,,37
+597,Quiero amarte,48,6,,37
+598,Suerte en mí,48,7,,37
+599,Menta y canela,48,8,,37
+600,Tumba la casa,48,9,,37
+601,Pata Pata,48,10,,37
+602,Siempre hay cariño,48,11,,37
+603,Rosalinda,48,12,,37
+604,The 1,49,1,,36
+605,Cardigan,49,2,,36
+606,The Last Great American Dynasty,49,3,,36
+607,Exile,49,4,Bon Iver,36
+608,My Tears Ricochet,49,5,,36
+609,Mirrorball,49,6,,36
+610,Seven,49,7,,36
+611,August,49,8,,36
+612,This Is Me Trying,49,9,,36
+613,Illicit Affairs,49,10,,36
+614,Invisible String,49,11,,36
+615,Mad Woman,49,12,,36
+616,Epiphany,49,13,,36
+617,Betty,49,14,,36
+618,Peace,49,15,,36
+619,Hoax,49,16,,36
+620,Forgive Me,50,1,,11
+621,Baby Girl,50,2,,11
+622,Do It,50,3,,11
+623,Tipsy,50,4,,11
+624,Ungodly Hour,50,5,,11
+625,Busy Boy,50,6,,11
+626,Catch Up,50,7,"Swae Lee, Mike Will Made-It",11
+627,Lonely,50,8,,11
+628,Don't Make It Harder on Me,50,9,,11
+629,Wonder What She Thinks of Me,50,10,,11
+630,ROYL,50,11,,11
+631,Pray You Catch Me,51,1,,5
+632,Hold Up,51,2,,5
+633,Don't Hurt Yourself,51,3,Jack White,5
+634,Sorry,51,4,,5
+635,6 Inch,51,5,The Weeknd,5
+636,Daddy Lessons,51,6,,5
+637,Love Drought,51,7,,5
+638,Sandcastles,51,8,,5
+639,Freedom,51,9,Kendrick Lamar,5
+640,All Night,51,10,,5
+641,Formation,51,11,,5
+642,Never Really Over,52,1,,17
+643,Cry About It Later,52,2,,17
+644,Teary Eyes,52,3,,17
+645,Daisies,52,4,,17
+646,Resilient,52,5,,17
+647,Not the End of the World,52,6,,17
+648,Smile,52,7,,17
+649,Champagne Problems,52,8,,17
+650,Tucked,52,9,,17
+651,Harleys in Hawaii,52,10,,17
+652,Only Love,52,11,,17
+653,What Makes a Woman,52,12,,17
+654,Envolver,53,1,,3
+655,Gata,53,2,Chencho Corleone,3
+656,I'd Rather Have Sex,53,3,,3
+657,Gimme Your Number,53,4,Ty Dolla Sign,3
+658,Maria elegante,53,5,Afro B,3
+659,Love You,53,6,,3
+660,Boys Don't Cry,53,7,,3
+661,Versions of Me,53,8,,3
+662,Turn It Up,53,9,,3
+663,Ur Baby,53,10,Khalid,3
+664,Girl from Rio,53,11,,3
+665,Faking Love,53,12,Saweetie,3
+666,Que Rabão,53,13,"YG, Papatinho, MC Kevin o Chris, Mr. Catra",3
+667,Me Gusta,53,14,"Cardi B, Myke Towers",3
+668,"Love Me, Love Me",53,15,,3
+669,Crash,54,1,,10
+670,New Shapes,54,2,"Caroline Polachek, Christine and the Queens",10
+671,Good Ones,54,3,,10
+672,Constant Repeat,54,4,,10
+673,Beg for You,54,5,Rina Sawayama,10
+674,Move Me,54,6,,10
+675,Baby,54,7,,10
+676,Lightning,54,8,,10
+677,Every Rule,54,9,,10
+678,Yuck,54,10,,10
+679,Used To Know Me,54,11,,10
+680,Twice,54,12,,10
+681,Intere$$eira,55,1,,24
+682,VIP *-*,55,2,6lack,24
+683,Modo Turbo,55,3,"Pabllo Vittar, Anitta",24
+684,Café da Manhã ;P,55,4,Ludmilla,24
+685,2000 s2,55,5,,24
+686,Anaconda *o* ~~~,55,6,Mariah Angeliq,24
+687,Mulher do Ano XD,55,7,,24
+688,Melhor Sozinha :-)-:,55,8,,24
+689,Fugitivos :),55,9,Jão,24
+690,Penhasco.,55,10,,24
+691,Caos / Flor ***,55,11,,24
+692,O Conto dos Dois Mundos (Hipocrisia),55,12,,24
+693,Também Não Sei de Nada :D,55,13,Lulu Santos,24
+694,Sparks,56,1,,13
+695,My Kind,56,2,,13
+696,One in a Million,56,3,,13
+697,Confetti,56,4,,13
+698,Breathe In. Breathe Out.,56,5,,13
+699,Lies,56,6,,13
+700,Arms Around a Memory,56,7,,13
+701,Stay in Love,56,8,,13
+702,Brave Heart,56,9,,13
+703,Tattoo,56,10,,13
+704,Picture This,56,11,,13
+705,Night Like This,56,12,Kendall Schmidt,13
+706,Break Up Song,57,1,,23
+707,Holiday,57,2,,23
+708,Sweet Melody,57,3,,23
+709,Confetti,57,4,,23
+710,Happiness,57,5,,23
+711,Not a Pop Song,57,6,,23
+712,Nothing But My Feelings,57,7,,23
+713,Gloves Up,57,8,,23
+714,A Mess (Happy 4 U),57,9,,23
+715,My Love Won't Let You Down,57,10,,23
+716,Rendezvous,57,11,,23
+717,If You Want My Love,57,12,,23
+718,Breathe,57,13,,23
+719,Brutal,58,1,,29
+720,Traitor,58,2,,29
+721,Drivers License,58,3,,29
+722,"1 Step Forward, 3 Steps Back",58,4,,29
+723,Deja Vu,58,5,,29
+724,Good 4 U,58,6,,29
+725,Enough for You,58,7,,29
+726,Happier,58,8,,29
+727,"Jealousy, Jealousy",58,9,,29
+728,Favorite Crime,58,10,,29
+729,Hope Ur OK,58,11,,29
+730,Happy,59,1,,27
+731,Froot,59,2,,27
+732,I'm a Ruin,59,3,,27
+733,Blue,59,4,,27
+734,Forget,59,5,,27
+735,Gold,59,6,,27
+736,Can't Pin Me Down,59,7,,27
+737,Solitaire,59,8,,27
+738,Better Than That,59,9,,27
+739,Weeds,59,10,,27
+740,Savages,59,11,,27
+741,Immortal,59,12,,27
+742,Love On Top,60,1,,5
+743,Party,60,2,André 3000,5
+744,Schoolin' Life,60,3,,5
+745,Countdown,60,4,,5
+746,I Miss You,60,5,,5
+747,Dance For You,60,6,,5
+748,I Care,60,7,,5
+749,Rather Die Young,60,8,,5
+750,1+1,60,9,,5
+751,End Of Time,60,10,,5
+752,Run The World (Girls),60,11,,5
+753,Best Thing I Never Had,60,12,,5
+754,Start Over,60,13,,5
+755,I Was Here,60,14,,5
+756,Living for Love,61,1,,25
+757,Devil Pray,61,2,,25
+758,Ghosttown,61,3,,25
+759,Unapologetic Bitch,61,4,,25
+760,Illuminati,61,5,,25
+761,Bitch I'm Madonna,61,6,Nicki Minaj,25
+762,Hold Tight,61,7,,25
+763,Joan of Arc,61,8,,25
+764,Iconic,61,9,"Chance the Rapper, Mike Tyson",25
+765,HeartBreakCity,61,10,,25
+766,Body Shop,61,11,,25
+767,Holy Water,61,12,,25
+768,Inside Out,61,13,,25
+769,Wash All Over Me,61,14,,25
+770,Best Night,61,15,,25
+771,Veni Vidi Vici,61,16,Nas,25
+772,S.E.X.,61,17,,25
+773,Messiah,61,18,,25
+774,Rebel Heart,61,19,,25
+775,Emails I Can't Send,62,1,,34
+776,Vicious,62,2,,34
+777,Read Your Mind,62,3,,34
+778,Tornado Warnings,62,4,,34
+779,Because I Liked a Boy,62,5,,34
+780,Already Over,62,6,,34
+781,How Many Things,62,7,,34
+782,Bet U Wanna,62,8,,34
+783,Nonsense,62,9,,34
+784,Fast Times,62,10,,34
+785,Skinny Dipping,62,11,,34
+786,Bad for Business,62,12,,34
+787,Decode,62,13,,34
+788,Pink Venom,63,1,,7
+789,Shut Down,63,2,,7
+790,Typa Girl,63,3,,7
+791,Yeah Yeah Yeah,63,4,,7
+792,Hard to Love,63,5,,7
+793,The Happiest Girl,63,6,,7
+794,Tally,63,7,,7
+795,Ready for Love,63,8,,7
+796,I'm That Girl,64,1,,5
+797,Cozy,64,2,,5
+798,Alien Superstar,64,3,,5
+799,Cuff It,64,4,,5
+800,Energy,64,5,Beam,5
+801,Break My Soul,64,6,,5
+802,Church Girl,64,7,,5
+803,Plastic off the Sofa,64,8,,5
+804,Virgo's Groove,64,9,,5
+805,Move,64,10,"Grace Jones, Tems",5
+806,Heated,64,11,,5
+807,Thique,64,12,,5
+808,All Up in Your Mind,64,13,,5
+809,America Has a Problem,64,14,,5
+810,Pure/Honey,64,15,,5
+811,Summer Renaissance,64,16,,5
+812,All the Lovers,65,1,,20
+813,Get Outta My Way,65,2,,20
+814,Put Your Hands Up (If You Feel Love),65,3,,20
+815,Closer,65,4,,20
+816,Everything Is Beautiful,65,5,,20
+817,Aphrodite,65,6,,20
+818,Illusion,65,7,,20
+819,Better than Today,65,8,,20
+820,Too Much,65,9,,20
+821,Cupid Boy,65,10,,20
+822,Looking for an Angel,65,11,,20
+823,Can't Beat the Feeling,65,12,,20
+824,Saoko,66,1,,33
+825,Candy,66,2,,33
+826,La Fama,66,3,The Weeknd,33
+827,Bulerías,66,4,,33
+828,Chicken Teriyaki,66,5,,33
+829,Hentai,66,6,,33
+830,Bizcochito,66,7,,33
+831,G3 N15,66,8,,33
+832,Motomami,66,9,,33
+833,Diablo,66,10,,33
+834,Delirios de Grandeza,66,11,,33
+835,Cuuuuuuuute,66,12,,33
+836,Como un G,66,13,,33
+837,Abcdefg,66,14,,33
+838,La Combi Versace,66,15,Tokischa,33
+839,Sakura,66,16,,33
+840,La Luna Enamorada,67,1,,16
+841,Fue Mejor,67,2,PartyNextDoor,16
+842,//Aguardiente y Limón %ᵕ‿‿ᵕ%,67,3,,16
+843,Aquí Yo Mando,67,4,Rico Nasty,16
+844,Vaya con Dios,67,5,,16
+845,Que Te Pedí//,67,6,,16
+846,Quiero Sentirme Bien,67,7,,16
+847,Telepatía,67,8,,16
+848,De Nadie,67,9,,16
+849,No Eres Tu (Soy Yo),67,10,,16
+850,Te Pongo Mal (Préndelo),67,11,"Jowell, Randy",16
+851,La Luz (Fín),67,12,Jhay Cortez,16
+852,Ángel sin Cielo,67,13,,16
+853,Lavender Haze,68,1,,36
+854,Maroon,68,2,,36
+855,Anti-Hero,68,3,,36
+856,Snow on the Beach,68,4,Lana Del Rey,36
+857,"You're on Your Own, Kid",68,5,,36
+858,Midnight Rain,68,6,,36
+859,Question...?,68,7,,36
+860,Vigilante Shit,68,8,,36
+861,Bejeweled,68,9,,36
+862,Labyrinth,68,10,,36
+863,Karma,68,11,,36
+864,Sweet Nothing,68,12,,36
+865,Mastermind,68,13,,36
+866,Gimme More,69,1,,8
+867,Piece of Me,69,2,,8
+868,Radar,69,3,,8
+869,Break the Ice,69,4,,8
+870,Heaven on Earth,69,5,,8
+871,Get Naked (I Got a Plan),69,6,,8
+872,Freakshow,69,7,,8
+873,Toy Soldier,69,8,,8
+874,Hot as Ice,69,9,,8
+875,Ooh Ooh Baby,69,10,,8
+876,Perfect Lover,69,11,,8
+877,Why Should I Be Sad,69,12,,8
+878,Sale el Sol,70,1,,39
+879,Loca,70,2,El Cata,39
+880,Antes de las Seis,70,3,,39
+881,Gordita,70,4,Residente Calle 13,39
+882,Addicted to You,70,5,,39
+883,Lo Que Más,70,6,,39
+884,Mariposas,70,7,,39
+885,Rabiosa,70,8,El Cata,39
+886,Devoción,70,9,,39
+887,Islands,70,10,,39
+888,Tu Boca,70,11,,39
+889,Waka Waka (Esto es África) (K-Mix),70,12,,39
+890,Loca,70,13,Dizzee Rascal,39
+891,Rabiosa,70,14,Pitbull,39
+892,Waka Waka (This Time for Africa) (K-Mix),70,15,,39

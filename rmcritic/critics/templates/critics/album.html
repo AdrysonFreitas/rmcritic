@@ -1,0 +1,27 @@
+<a href="{% url 'index' %}">Início</a> <a href="{% url 'artist_index' %}">Artistas</a> <a href="{% url 'magazine_index' %}">Revistas</a> <br>
+
+<img src="{{ album.image }}" alt="{{ album.artist.name }} - {{ album.name }}" width="200" height="200"><br>
+{% if album.name|first in '*' %}
+    <h2>{{ album.name|slice:"1:" }} (Revisitado)</h2>
+{% else %}
+    <h2>{{ album.name }}</h2>
+{% endif %}
+<a href="{% url 'artist_detail' album.artist.id %}">{{ album.artist.name }}</a>
+<br><br>
+Nota: {{ album.rating }}<br>
+Baseado em {{ album.count_review }} avaliações <br>
+Faixas: {{ album.tracks }}<br>
+Tipo: {% if album.tracks > 8 %} LP {% else %} EP {% endif %}<br>
+Gênero: {{ album.genre_list }}<br><br>
+
+<h1>Avaliações:</h1>
+{% for review in album.reviews.all %}
+    {{ review.rating }}<br>
+    <b><a href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a></b><br><br>
+{% endfor %}
+
+<h2>Melhores faixas:</h2>
+{% for track in tracklist %}
+    {{ track.name }} - {{ track.rating }}<br>
+    <br>
+{% endfor %}

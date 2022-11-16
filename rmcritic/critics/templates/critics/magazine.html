@@ -1,0 +1,28 @@
+<a href="{% url 'index' %}">Início</a> <a href="{% url 'artist_index' %}">Artistas</a> <a href="{% url 'magazine_index' %}">Revistas</a> <br>
+
+
+<img src="{{ magazine.image }}" alt="{{ magazine.name }}" width="200" height="200"><br>
+<h2>{{ magazine.name }}</h2>
+Administrada por {{ magazine.adm }}<br>
+{% if magazine.alt_name != None %}
+    {% if magazine.alt_name != '' %}
+        Também conhecida como {{ magazine.alt_name }}<br>
+    {% endif %}
+{% endif %}
+Média: {{ magazine.avg }}<br>
+Baseado em {{ magazine.count_review }} avaliações <br>
+{% if magazine.isActive == True %}
+    Ativa<br><br>
+{% else %}
+    Inativa<br><br>
+{% endif %}
+
+{% for review in magazine.reviews.all %}
+    {{ review.rating }}<br>
+    {% if review.album.name|first in '*' %}
+        <b><a href="{% url 'album_detail' review.album.id %}">{{ review.album.name|slice:"1:" }} (Revisitado)</a></b><br>
+    {% else %}
+        <b><a href="{% url 'album_detail' review.album.id %}">{{ review.album.name }}</a></b><br>
+    {% endif %}
+    <a href="{% url 'artist_detail' review.artist.id %}">{{ review.artist.name }}</a><br><br>
+{% endfor %}

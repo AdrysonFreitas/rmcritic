@@ -1,0 +1,11 @@
+<a href="{% url 'artist_index' %}">Artistas</a> <a href="{% url 'magazine_index' %}">Revistas</a> <br>
+
+{% if latest_album_list %}
+    <ul>
+    {% for album in latest_album_list %}
+        <li><a href="{% url 'album_detail' album.id %}">{{ album.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No albums are available.</p>
+{% endif %}
