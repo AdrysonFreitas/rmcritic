@@ -2,8 +2,12 @@ from django.contrib import admin
 
 from .models import Genre,Artist,Album,Magazine,Review,Track,ReviewTrack
 
-admin.site.register(Track)
-admin.site.register(ReviewTrack)
+@admin.action(description='Ativar revista')
+def make_active(modeladmin, request, queryset):
+    if queryset.filter(isActive=False):
+        queryset.update(isActive=True)
+    else:
+        queryset.update(isActive=False)
 
 class GenreAdmin(admin.ModelAdmin):
     fields = ['name']
@@ -18,8 +22,18 @@ class ArtistAdmin(admin.ModelAdmin):
 
 admin.site.register(Artist, ArtistAdmin)
 
+class TrackAdmin(admin.ModelAdmin):
+    fields = ['name', 'featuring','parent_album','place_in_tracklist']
+    read_only_field = ('parent_album__artist')
+    list_display = ('name','featuring','parent_album','rating')
+    list_filter = ['parent_album__artist','parent_album']
+    search_fields = ['name']
+
+admin.site.register(Track,TrackAdmin)
+
 class TrackInline(admin.TabularInline):
     model = Track
+    fields = ('name', 'featuring', 'place_in_tracklist')
     extra = 1
 
 class AlbumAdmin(admin.ModelAdmin):
@@ -32,15 +46,18 @@ class AlbumAdmin(admin.ModelAdmin):
 admin.site.register(Album, AlbumAdmin)
 
 class MagazineAdmin(admin.ModelAdmin):
-    fields = ['name', 'image','alt_name','adm','isActive']
+    fields = ['name', 'image','alt_name','adm']
     list_display = ('name','adm','avg','isActive')
     list_filter = ['isActive']
     search_fields = ['name']
+    actions = [make_active]
 
 admin.site.register(Magazine, MagazineAdmin)
 
 class TrackReviewInline(admin.TabularInline):
     model = ReviewTrack
+    fields = ['track', 'rating']
+    autocomplete_fields = ['track']
     extra = 1
 
 class ReviewAdmin(admin.ModelAdmin):

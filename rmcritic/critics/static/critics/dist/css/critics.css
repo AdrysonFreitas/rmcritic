@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Lexend Deca', sans-serif!important;
+    color: #333;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+a.dotted-link{
+    border-bottom: 1px dotted #333;
+}
+
+main.container .row a:hover{
+    background: -webkit-linear-gradient(60deg,#fa6830, #fc432c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+b{
+    font-weight: 700;
+}
+
+.navbar-brand{
+    font-size: 30px;
+    font-weight: 800;
+    background: -webkit-linear-gradient(60deg,#fa6830, #fc432c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar a{
+    border-bottom: none;
+}

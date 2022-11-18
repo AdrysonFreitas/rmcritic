@@ -1,11 +1,33 @@
-<a href="{% url 'artist_index' %}">Artistas</a> <a href="{% url 'magazine_index' %}">Revistas</a> <br>
+{% extends 'critics/base.html' %}
+
+{% block content %}
 
 {% if latest_album_list %}
-    <ul>
-    {% for album in latest_album_list %}
-        <li><a href="{% url 'album_detail' album.id %}">{{ album.name }}</a></li>
-    {% endfor %}
-    </ul>
+    <div class="container">
+        <div class="card-group">
+
+            <!--bootstrap card with 3 horizontal images-->
+            <div class="row">
+                {% for album in latest_album_list %}
+                    <div class="card col-md-4">
+                        <img class="card-img-top" src="{{ album.image }}">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                {% if album.name|first in '*' %}
+                                    <a class="in_detail dotted-link" href="{% url 'album_detail' album.id %}">{{ album.name|slice:"1:" }} (Revisitado)</a>
+                                {% else %}
+                                    <a class="in_detail dotted-link" href="{% url 'album_detail' album.id %}">{{ album.name }}</a>
+                                {% endif %}
+                            </h4>
+                            <h6 class="card-subtitle mb-2 lead text-muted"><a href="{% url 'artist_detail' album.artist.id %}">{{ album.artist }}</a></h6>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% else %}
     <p>No albums are available.</p>
 {% endif %}
+
+{% endblock %}

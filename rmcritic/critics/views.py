@@ -36,8 +36,8 @@ class ArtistDetailView(generic.DetailView):
     model = Artist
     def get_context_data(self, **kwargs):
         context = super(ArtistDetailView, self).get_context_data(**kwargs)
-        context['best_tracks'] = Track.objects.filter(parent_artist=self.get_object()).order_by('reviews')[:5]
-        context['worst_tracks'] = Track.objects.filter(parent_artist=self.get_object()).order_by('-reviews')[:5]
+        context['best_tracks'] = Track.objects.filter(parent_album__artist=self.get_object()).order_by('reviews')[:5]
+        context['worst_tracks'] = Track.objects.filter(parent_album__artist=self.get_object()).order_by('-reviews')[:5]
         context['best_reviews'] = Review.objects.filter(artist=self.get_object()).order_by('-rating')[:5]
         context['worst_reviews'] = Review.objects.filter(artist=self.get_object()).order_by('rating')[:5]
         return context
@@ -59,3 +59,9 @@ class MagazineIndexView(generic.ListView):
 class MagazineDetailView(generic.DetailView):
     model = Magazine
     template_name = 'critics/magazine.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MagazineDetailView, self).get_context_data(**kwargs)
+        context['best_artists'] = Artist.objects.filter(reviews__magazine=self.get_object()).order_by('reviews')[:5]
+        context['worst_artists'] = Artist.objects.filter(reviews__magazine=self.get_object()).order_by('-reviews')[:5]
+        return context

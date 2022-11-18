@@ -1,10 +1,15 @@
-<a href="{% url 'index' %}">Início</a> <a href="{% url 'artist_index' %}">Artistas</a>
+{% extends 'critics/base.html' %}
+
+{% block content %}
+
 {% if latest_magazine_list %}
     <ul>
     {% for magazine in latest_magazine_list %}
-        <li><a href="{% url 'magazine_detail' magazine.id %}">{{ magazine.name }}</a></li>
+        <li><a class="dotted-link" href="{% url 'magazine_detail' magazine.id %}">{{ magazine.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No magazines are available.</p>
 {% endif %}
+
+{% endblock %}

@@ -79,9 +79,6 @@ class Track(models.Model):
     parent_album = models.ForeignKey(Album,
         on_delete=models.CASCADE,
         related_name='tracklist',)
-    parent_artist = models.ForeignKey(Artist,
-        on_delete=models.CASCADE,
-        related_name='tracks',)
     rating = models.IntegerField(default=0)
     place_in_tracklist = models.IntegerField(default=0)
 
@@ -93,7 +90,10 @@ class Track(models.Model):
         ordering = ['place_in_tracklist']
 
     def __str__(self):
-        return self.name
+        if (self.featuring != '') and (self.featuring != None):
+            return f'{self.name} (feat. {self.featuring})'
+        else:
+            return f'{self.name}'
 
 class Magazine(models.Model):
     name = models.CharField(max_length=200)

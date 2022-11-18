@@ -1,27 +1,31 @@
-<a href="{% url 'index' %}">Início</a> <a href="{% url 'artist_index' %}">Artistas</a> <a href="{% url 'magazine_index' %}">Revistas</a> <br>
+{% extends 'critics/base.html' %}
+
+{% block content %}
 
 <img src="{{ album.image }}" alt="{{ album.artist.name }} - {{ album.name }}" width="200" height="200"><br>
 {% if album.name|first in '*' %}
     <h2>{{ album.name|slice:"1:" }} (Revisitado)</h2>
 {% else %}
-    <h2>{{ album.name }}</h2>
+    <h2 class="h1">{{ album.name }}</h2>
 {% endif %}
 <a href="{% url 'artist_detail' album.artist.id %}">{{ album.artist.name }}</a>
 <br><br>
-Nota: {{ album.rating }}<br>
+{% if album.rating < 50 %} <h1 class="text-danger">{{ album.rating }}</h1> {% elif album.rating > 69 %} <h1 class="text-success"> {{ album.rating }}</h1> {% else %} <h1 class="text-warning">{{ album.rating }}</h1> {% endif %}
 Baseado em {{ album.count_review }} avaliações <br>
 Faixas: {{ album.tracks }}<br>
 Tipo: {% if album.tracks > 8 %} LP {% else %} EP {% endif %}<br>
 Gênero: {{ album.genre_list }}<br><br>
 
-<h1>Avaliações:</h1>
+<h3>Avaliações:</h3>
 {% for review in album.reviews.all %}
     {{ review.rating }}<br>
-    <b><a href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a></b><br><br>
+    <b><a class="dotted-link" href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a></b><br><br>
 {% endfor %}
 
-<h2>Melhores faixas:</h2>
+<h3>Melhores faixas:</h3>
 {% for track in tracklist %}
     {{ track.name }} - {{ track.rating }}<br>
     <br>
 {% endfor %}
+
+{% endblock %}

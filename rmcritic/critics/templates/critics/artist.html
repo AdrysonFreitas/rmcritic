@@ -1,58 +1,61 @@
-<a href="{% url 'index' %}">Início</a> <a href="{% url 'artist_index' %}">Artistas</a> <a href="{% url 'magazine_index' %}">Revistas</a> <br>
+{% extends 'critics/base.html' %}
+
+{% block content %}
 
 <img src="{{ artist.image }}" alt="{{ artist.name }}" width="200" height="200"><br>
-<h2>{{ artist.name }}</h2>
-Gênero: {{ artist.genre_list }}<br>
-Média: {{ artist.avg }}<br>
-Baseado em {{ artist.count_review }} avaliações
+<h2 class="display-3">{{ artist.name }}</h2>
+{% if artist.avg < 50 %} <h1 class="text-danger">{{ artist.avg }}</h1> {% elif artist.avg > 69 %} <h1 class="text-success"> {{ artist.avg }}</h1> {% else %} <h1 class="text-warning">{{ artist.avg }}</h1> {% endif %}
+<small class="text-muted">Baseado em {{ artist.count_review }} avaliações </small><br>
+Gênero: {{ artist.genre_list }}<br><br>
 
-<h1>Albums:</h1>
+<h3>Albums:</h3>
 {% for work in artist.albums.all %}
     {% if work.tracks > 8 %}
-        {{ work.rating }}<br>
+        {% if work.rating < 50 %} <h3 class="text-danger">{{ work.rating }}</h3> {% elif work.rating > 69 %} <h3 class="text-success"> {{ work.rating }}</h3> {% else %} <h3 class="text-warning">{{ work.rating }}</h3> {% endif %}
         {% if work.name|first in '*' %}
-            <b><a href="{% url 'album_detail' work.id %}">{{ work.name|slice:"1:" }} (Revisitado)</a></b><br>
+            <b><a class="in_detail dotted-link" href="{% url 'album_detail' work.id %}">{{ work.name|slice:"1:" }} (Revisitado)</a></b><br>
         {% else %}
-            <b><a href="{% url 'album_detail' work.id %}">{{ work.name }}</a></b><br>
+            <b><a class="in_detail dotted-link" href="{% url 'album_detail' work.id %}">{{ work.name }}</a></b><br>
         {% endif %}    <br>
     {% endif %}
 {% endfor %}
 
-<h1>EPs:</h1>
+<h3>EPs:</h3>
 {% for work in artist.albums.all %}
     {% if work.tracks <= 8 %}
-        {{ work.rating }}<br>
+        {% if work.rating < 50 %} <h3 class="text-danger">{{ work.rating }}</h3> {% elif work.rating > 69 %} <h3 class="text-success"> {{ work.rating }}</h3> {% else %} <h3 class="text-warning">{{ work.rating }}</h3> {% endif %}
         {% if work.name|first in '*' %}
-            <b><a href="{% url 'album_detail' work.id %}">{{ work.name|slice:"1:" }} (Revisitado)</a></b><br>
+            <b><a class="in_detail dotted-link" href="{% url 'album_detail' work.id %}">{{ work.name|slice:"1:" }} (Revisitado)</a></b><br>
         {% else %}
-            <b><a href="{% url 'album_detail' work.id %}">{{ work.name }}</a></b><br>
+            <b><a class="in_detail dotted-link" href="{% url 'album_detail' work.id %}">{{ work.name }}</a></b><br>
         {% endif %}    <br>
     {% endif %}
 {% endfor %}
-
-<h1>Melhores faixas:</h1>
+<p>
+<h4>Melhores faixas:</h4>
 {% for track in best_tracks %}
-    {{ track.name }} - {{ track.rating }}<br>
+    {{ track.name }} - {{ track.rating }}
     <br>
 {% endfor %}
-
-<h1>Piores faixas:</h1>
+</p><p>
+<h4>Piores faixas:</h4>
 {% for track in worst_tracks %}
-    {{ track.name }} - {{ track.rating }}<br>
+    {{ track.name }} - {{ track.rating }}
     <br>
 {% endfor %}
-
-<h1>Maiores notas:</h1>
+</p>
+<h4>Maiores notas:</h4>
 {% for review in best_reviews %}
     <b>{{ review.magazine.name }}</b><br>
     {{ review.album.name }} - {{ review.rating }}<br>
     <br>
 {% endfor %}
 
-<h1>Menores notas:</h1>
+<h4>Menores notas:</h4>
 {% for review in worst_reviews %}
     <b>{{ review.magazine.name }}</b><br>
     {{ review.album.name }} - {{ review.rating }}<br>
     <br>
 {% endfor %}
 
+{% endblock %}

@@ -1,8 +1,9 @@
-<a href="{% url 'index' %}">Início</a> <a href="{% url 'artist_index' %}">Artistas</a> <a href="{% url 'magazine_index' %}">Revistas</a> <br>
+{% extends 'critics/base.html' %}
 
+{% block content %}
 
 <img src="{{ magazine.image }}" alt="{{ magazine.name }}" width="200" height="200"><br>
-<h2>{{ magazine.name }}</h2>
+<h2 class="display-3">{{ magazine.name }}</h2>
 Administrada por {{ magazine.adm }}<br>
 {% if magazine.alt_name != None %}
     {% if magazine.alt_name != '' %}
@@ -17,12 +18,15 @@ Baseado em {{ magazine.count_review }} avaliações <br>
     Inativa<br><br>
 {% endif %}
 
+<h3>Avaliações:</h3>
 {% for review in magazine.reviews.all %}
     {{ review.rating }}<br>
     {% if review.album.name|first in '*' %}
-        <b><a href="{% url 'album_detail' review.album.id %}">{{ review.album.name|slice:"1:" }} (Revisitado)</a></b><br>
+        <b><a class="dotted-link" href="{% url 'album_detail' review.album.id %}">{{ review.album.name|slice:"1:" }} (Revisitado)</a></b><br>
     {% else %}
-        <b><a href="{% url 'album_detail' review.album.id %}">{{ review.album.name }}</a></b><br>
+        <b><a class="dotted-link" href="{% url 'album_detail' review.album.id %}">{{ review.album.name }}</a></b><br>
     {% endif %}
     <a href="{% url 'artist_detail' review.artist.id %}">{{ review.artist.name }}</a><br><br>
 {% endfor %}
+
+{% endblock %}
