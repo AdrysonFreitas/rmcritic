@@ -24,7 +24,6 @@ admin.site.register(Artist, ArtistAdmin)
 
 class TrackAdmin(admin.ModelAdmin):
     fields = ['name', 'featuring','parent_album','place_in_tracklist']
-    read_only_field = ('parent_album__artist')
     list_display = ('name','featuring','parent_album','rating')
     list_filter = ['parent_album__artist','parent_album']
     search_fields = ['name']
@@ -65,11 +64,10 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = ('album','magazine','rating')
     inlines = [TrackReviewInline]
     list_filter = ['magazine','artist','album']
+    autocomplete_fields = ['magazine', 'album', 'artist']
 
     def render_change_form(self, request, context, *args, **kwargs):
         context['adminform'].form.fields['magazine'].queryset = Magazine.objects.filter(isActive=True)
         return super(ReviewAdmin, self).render_change_form(request, context, args, kwargs) 
-
-
 
 admin.site.register(Review, ReviewAdmin)

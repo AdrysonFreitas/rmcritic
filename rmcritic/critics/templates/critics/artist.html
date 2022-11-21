@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include 'critics/header.html' %}
+
 <img src="{{ artist.image }}" alt="{{ artist.name }}" width="200" height="200"><br>
 <h2 class="display-3">{{ artist.name }}</h2>
 {% if artist.avg < 50 %} <h1 class="text-danger">{{ artist.avg }}</h1> {% elif artist.avg > 69 %} <h1 class="text-success"> {{ artist.avg }}</h1> {% else %} <h1 class="text-warning">{{ artist.avg }}</h1> {% endif %}

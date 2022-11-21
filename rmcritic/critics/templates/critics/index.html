@@ -2,15 +2,80 @@
 
 {% block content %}
 
-{% if latest_album_list %}
-    <div class="container">
-        <div class="card-group">
+<div class="top">
+    <div class="top_img img-fluid" style="background-image:url({{ latest.artist.image }})">
+        
+    </div>
 
-            <!--bootstrap card with 3 horizontal images-->
+    <div class="container cont-header p-0">
+        {% include 'critics/header.html' %}</div>
+</div>
+
+<div class="list-block">
+    <div class="my-4">
+        <span class="headingp mx-4">Outras Avaliações:</span>
+    </div>
+
+    {% if latest_album_list %}
+        <div class="card-group">
             <div class="row">
-                {% for album in latest_album_list %}
-                    <div class="card col-md-4">
-                        <img class="card-img-top" src="{{ album.image }}">
+                    {% for album in latest_album_list %}
+                        {% if album.rating != None %}
+                            {% if album != latest %}
+                                <div class="card col-md-4">
+                                <article class="postcard {% if album.rating < 50 %} bad {% elif album.rating > 69 %} good {% else %} mixed {% endif %} detail_s_color .small">
+                                    <a class="postcard__img_link" href="{% url 'album_detail' album.id %}">
+                                        <img class="postcard__img" src="{{ album.image }}" alt="{{ album.artist }} - {{ album.name}}" />
+                                    </a>
+                                    <div class="postcard__text">
+                                        <table class="content-table">
+                                            <tr>
+                                                <td>
+                                                    <h1 class="postcard__title detail_s_color">
+                                                        {% if album.name|first in '*' %}
+                                                            <a class="in_detail dotted-link" href="{% url 'album_detail' album.id %}">{{ album.name|slice:"1:" }} (Revisitado)</a>
+                                                        {% else %}
+                                                            <a class="in_detail dotted-link" href="{% url 'album_detail' album.id %}">{{ album.name }}</a>
+                                                        {% endif %}
+                                                    </h1>
+                                                    <div class="postcard__subtitle small">
+                                                        <h6 class="card-subtitle mb-2 lead"><a href="{% url 'artist_detail' album.artist.id %}">{{ album.artist }}</a></h6>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h1 class="rate">{{ album.rating }}</h1>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <ul class="postcard__tagbox">
+                                                        <li class="tag__item play detail_s_color">{{ album.count_review }} avaliações</li>
+                                                        <li class="tag__item play detail_s_color">{{ album.tracks }} tracks</li>
+                                                        <li class="tag__item play detail_s_color">{% if album.tracks > 8 %} LP {% else %} EP {% endif %}</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                                </div>
+                            {%endif%}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+    {% else %}
+        <p>No albums are available.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+<!--
+
+<img class="card-img-top" src="{{ album.image }}">
                         <div class="card-body">
                             <h4 class="card-title">
                                 {% if album.name|first in '*' %}
@@ -21,13 +86,4 @@
                             </h4>
                             <h6 class="card-subtitle mb-2 lead text-muted"><a href="{% url 'artist_detail' album.artist.id %}">{{ album.artist }}</a></h6>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-{% else %}
-    <p>No albums are available.</p>
-{% endif %}
-
-{% endblock %}
+-->

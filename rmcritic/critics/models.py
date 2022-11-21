@@ -65,6 +65,18 @@ class Album(models.Model):
     def genre_list(self):
         return ', '.join([a.name for a in self.genre.all()])
     genre_list.short_description = "Genres"
+
+    def serialize(self):
+        return {
+            "id": self.id, 
+            "name": self.username,
+            "image": self.image,
+            "artist": self.artist.name,
+            "tracks": self.tracks,
+            "genre": self.genre_list,
+            "count_review": self.count_review,
+            "rating": self.rating,
+	}
     
     class Meta:
         ordering = ['-id']
@@ -87,7 +99,7 @@ class Track(models.Model):
         return self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
 
     class Meta:
-        ordering = ['place_in_tracklist']
+        ordering = ['-id']
 
     def __str__(self):
         if (self.featuring != '') and (self.featuring != None):

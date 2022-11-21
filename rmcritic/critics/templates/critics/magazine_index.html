@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include 'critics/header.html' %}
+
 {% if latest_magazine_list %}
     <ul>
     {% for magazine in latest_magazine_list %}

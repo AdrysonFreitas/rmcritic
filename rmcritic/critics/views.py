@@ -1,19 +1,27 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, JsonResponse
 from .models import Genre,Artist,Album,Magazine,Review,Track
 from django.template import loader
 from django.views import generic
 from django.urls import reverse
 from django.db.models import Avg, IntegerField
 from django.db.models.functions import Round, Cast
+from django.db import IntegrityError
+from django.core.paginator import Paginator
+
+import json
 
 class IndexView(generic.ListView):
     template_name = 'critics/index.html'
     context_object_name = 'latest_album_list'
 
     def get_queryset(self):
-        """Retorna os 5 útlimos álbuns avaliados."""
         return Album.objects.order_by('-id')
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['latest'] = Album.objects.latest('id')
+        return context
 
 class AlbumDetailView(generic.DetailView):
     model = Album
@@ -21,7 +29,7 @@ class AlbumDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(AlbumDetailView, self).get_context_data(**kwargs)
-        context['tracklist'] = Track.objects.filter(parent_album=self.get_object()).order_by('reviews')
+        context['tracklist'] = Track.objects.filter(parent_album=self.get_object()).order_by('id')
         return context
 
 class ArtistIndexView(generic.ListView):

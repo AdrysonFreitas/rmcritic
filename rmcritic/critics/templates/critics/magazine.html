@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include 'critics/header.html' %}
+
 <img src="{{ magazine.image }}" alt="{{ magazine.name }}" width="200" height="200"><br>
 <h2 class="display-3">{{ magazine.name }}</h2>
 Administrada por {{ magazine.adm }}<br>

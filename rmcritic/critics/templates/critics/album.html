@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include 'critics/header.html' %}
+
 <img src="{{ album.image }}" alt="{{ album.artist.name }} - {{ album.name }}" width="200" height="200"><br>
 {% if album.name|first in '*' %}
     <h2>{{ album.name|slice:"1:" }} (Revisitado)</h2>

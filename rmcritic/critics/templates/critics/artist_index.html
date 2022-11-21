@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include 'critics/header.html' %}
+
 {% if latest_artist_list %}
     <ul>
     {% for artist in latest_artist_list %}
