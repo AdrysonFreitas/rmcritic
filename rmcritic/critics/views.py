@@ -12,8 +12,10 @@ from django.core.paginator import Paginator
 import json
 
 class IndexView(generic.ListView):
+    model: Album
     template_name = 'critics/index.html'
     context_object_name = 'latest_album_list'
+    paginate_by = 10
 
     def get_queryset(self):
         return Album.objects.order_by('-id')
