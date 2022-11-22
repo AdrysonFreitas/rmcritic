@@ -74,7 +74,7 @@ hr{
     width: 100%;
     background-size: cover;
     object-fit: cover;
-    height: -webkit-fill-available;
+    height: 100%;
     position: absolute;
     background-position: center;
     background-repeat:no-repeat;
@@ -102,6 +102,141 @@ hr{
     margin-top: -20rem;
 }
 
+.search-field{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width:100%;
+    padding-top: 1rem;
+}
+
+.form-outline{
+    width:100%;
+}
+
+.form-control{
+    border: 0px solid #ced4da;
+    border-radius: 83.25rem;
+    width:100%;
+}
+
+.form-search{
+    display:flex;
+    width: 100%;
+}
+
+.btn-search,.btn-search:hover{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-search:focus{
+    box-shadow: none!important;
+}
+
+.form-control:focus{
+    border-color:transparent;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #fa6830;
+  }
+
+.current{
+    margin: 0 5px;
+    font-weight: 500;
+}
+
+.btn-pages{
+    background: -webkit-linear-gradient(60deg,#fa6830, #fc432c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+    font-weight: 300;
+}
+
+.btn-pages:focus, .btn-pages:hover{
+    border:none;
+    box-shadow: none!important;
+    font-weight: 700;
+    border-bottom: 1px dotted #333;
+}
+
+.disabled-btn{
+    background: none;
+    color:#333;
+    -webkit-text-fill-color: #333;
+}
+
+.disabled-btn:hover{
+    background: none!important;
+    color:#333;
+    -webkit-text-fill-color: #333!important;
+    font-weight: normal;
+}
+
+.headline{
+    position: relative;
+    display: flex;
+    height: 20rem;
+    justify-content: right;
+    padding: 0 5.5555%!important;
+    max-width: 100%;
+    width:100%;
+    margin-top: 50%;
+    max-height: 174px;
+}
+
+.headline-text{
+    text-align: end;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+    text-shadow: 1px 1px 30px #333;
+}
+
+.badge-primary{
+    background: -webkit-linear-gradient(60deg,#fa6830, #fc432c);
+    text-shadow: none;
+}
+
+.badge-primary:hover{
+    background: -webkit-linear-gradient(60deg,#fc432c, #fa6830);
+}
+
+.headline-title{
+    font-weight:700;
+    color:#f8f9fa;
+}
+
+.headline-artist{
+    color: #f8f9fa;
+    text-transform: uppercase;
+}
+
+.headline a{
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #f8f9fa;
+}
+
+.headline a:hover{
+    border-bottom: 1px dotted #333;
+}
+
+.headline img{
+    border-radius: 10px;
+    max-height: 174px;
+}
+
+.headline:hover img{
+    transform: scale(1.03);
+}
+
 @media (min-width: 576px){
     .top .cont-header{
         padding: 0 5.5555%!important;
@@ -111,5 +246,23 @@ hr{
     .top .top_img{
         background-position: 100% 30%;
         background-size: 100%;
+    }
+
+    .input-group{
+        display: flex;
+        flex-direction: row;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width:auto;
+        padding-top: 0;
+    }
+
+    .headline{
+        margin-top: 7%;
+        max-height: none;
+    }
+
+    .headline img{
+        max-height: 335px;
     }
 }

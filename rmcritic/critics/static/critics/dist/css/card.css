@@ -46,14 +46,17 @@ a, a:hover {
 }
 
 .postcard.good a:hover{
+    -webkit-text-fill-color:rgb(63, 124, 32)!important;
     color: rgb(63, 124, 32)!important;
 }
 
 .postcard.mixed a:hover{
+    -webkit-text-fill-color:rgb(199, 159, 39)!important;
     color: rgb(199, 159, 39)!important;
 }
 
 .postcard.bad a:hover{
+    -webkit-text-fill-color:rgb(187, 3, 3)!important;
     color: rgb(187, 3, 3)!important;
 }
 	

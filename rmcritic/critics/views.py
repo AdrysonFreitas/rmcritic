@@ -15,10 +15,18 @@ class IndexView(generic.ListView):
     model: Album
     template_name = 'critics/index.html'
     context_object_name = 'latest_album_list'
-    paginate_by = 10
+    paginate_by = 9
 
     def get_queryset(self):
-        return Album.objects.order_by('-id')
+        latest = Album.objects.latest('id')
+        album_list = Album.objects.order_by('-id').exclude(id=latest.id)
+
+        query = self.request.GET.get('q')
+        if query:
+            album_list = Album.objects.filter(name__icontains=query)
+        else:
+            album_list = Album.objects.order_by('-id').exclude(id=latest.id)
+        return album_list
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
