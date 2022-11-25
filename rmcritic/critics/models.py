@@ -28,6 +28,10 @@ class Artist(models.Model):
     def count_review(self):
         return self.reviews.aggregate(count_review=Count('rating'))['count_review']
 
+    @property
+    def count_albums(self):
+        return self.albums.aggregate(count_albums=Count('id'))['count_albums']
+
     def genre_list(self):
         return ', '.join([a.name for a in self.genre.all()])
     genre_list.short_description = "Genres"
@@ -96,7 +100,10 @@ class Track(models.Model):
 
     @property
     def rating(self):
-        return self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        r = self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        if r is None:
+            r = 0
+        return r
 
     class Meta:
         ordering = ['-id']

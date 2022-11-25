@@ -8,6 +8,7 @@ from django.db.models import Avg, IntegerField
 from django.db.models.functions import Round, Cast
 from django.db import IntegrityError
 from django.core.paginator import Paginator
+import random
 
 import json
 
@@ -39,23 +40,37 @@ class AlbumDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(AlbumDetailView, self).get_context_data(**kwargs)
-        context['tracklist'] = Track.objects.filter(parent_album=self.get_object()).order_by('id')
+        context['tracklist'] = sorted(Track.objects.filter(parent_album=self.get_object()).order_by('place_in_tracklist'), key=lambda m: m.rating, reverse=True)
         return context
 
 class ArtistIndexView(generic.ListView):
+    model = Artist
     template_name = 'critics/artist_index.html'
     context_object_name = 'latest_artist_list'
+    paginate_by = 9
 
     def get_queryset(self):
-        """Retorna 5 artistas."""
-        return Artist.objects.order_by('name')
+        artist_list = Artist.objects.order_by('name')
+
+        query = self.request.GET.get('q')
+        if query:
+            artist_list = Artist.objects.filter(name__icontains=query)
+        else:
+            artist_list = Artist.objects.order_by('name')
+        return artist_list
+
+    def get_context_data(self, **kwargs):
+        context = super(ArtistIndexView, self).get_context_data(**kwargs)
+        items = list(Artist.objects.all())
+        context['random_artist'] = random.choice(items)
+        return context
 
 class ArtistDetailView(generic.DetailView):
     model = Artist
     def get_context_data(self, **kwargs):
         context = super(ArtistDetailView, self).get_context_data(**kwargs)
-        context['best_tracks'] = Track.objects.filter(parent_album__artist=self.get_object()).order_by('reviews')[:5]
-        context['worst_tracks'] = Track.objects.filter(parent_album__artist=self.get_object()).order_by('-reviews')[:5]
+        context['best_tracks'] = sorted(Track.objects.filter(parent_album__artist=self.get_object()), key=lambda m: m.rating, reverse=True)[:5]
+        context['worst_tracks'] = sorted(Track.objects.filter(parent_album__artist=self.get_object()), key=lambda m: m.rating)[:5]
         context['best_reviews'] = Review.objects.filter(artist=self.get_object()).order_by('-rating')[:5]
         context['worst_reviews'] = Review.objects.filter(artist=self.get_object()).order_by('rating')[:5]
         return context
@@ -67,12 +82,26 @@ class ArtistDetailView(generic.DetailView):
 #    return render(request, 'critics/magazine_index.html', context)
 
 class MagazineIndexView(generic.ListView):
+    model = Magazine
     template_name = 'critics/magazine_index.html'
     context_object_name = 'latest_magazine_list'
+    paginate_by = 9
 
     def get_queryset(self):
-        """Retorna 5 revistas."""
-        return Magazine.objects.order_by('name')
+        magazine_list = Magazine.objects.order_by('name')
+
+        query = self.request.GET.get('q')
+        if query:
+            magazine_list = Magazine.objects.filter(name__icontains=query)
+        else:
+            magazine_list = Magazine.objects.order_by('name')
+        return magazine_list
+
+    def get_context_data(self, **kwargs):
+        context = super(MagazineIndexView, self).get_context_data(**kwargs)
+        items = list(Album.objects.all())
+        context['random_album'] = random.choice(items)
+        return context
     
 class MagazineDetailView(generic.DetailView):
     model = Magazine

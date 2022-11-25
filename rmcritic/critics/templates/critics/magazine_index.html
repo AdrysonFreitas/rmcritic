@@ -2,16 +2,74 @@
 
 {% block content %}
 
-{% include 'critics/header.html' %}
+<div class="top">
+    <div class="top_artist top_img img-fluid" style="background-image:url({{ random_album.image }})">
+        
+    </div>
 
-{% if latest_magazine_list %}
-    <ul>
-    {% for magazine in latest_magazine_list %}
-        <li><a class="dotted-link" href="{% url 'magazine_detail' magazine.id %}">{{ magazine.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No magazines are available.</p>
-{% endif %}
+    <div class="container cont-header p-0">
+        {% include 'critics/header.html' %}</div>
+</div>
+
+<div class="list-block">
+
+    <div class="search-field my-4">
+        <span class="headingp mx-4">Revistas:</span>
+        <div class="input-group">
+            <form class="form-search" method='GET'>
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" name='q' placeholder="Buscar" value='{{ request.GET.q }}'/>
+                </div>
+                <button type="submit" class="btn btn-primary btn-search" >
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    {% if latest_magazine_list %}
+        <div class="card-group">
+            <div class="row">
+                    {% for magazine in latest_magazine_list %}
+                        {% if magazine.avg != None %}
+                            <div class="card col-md-4">
+                                <article class="postcard neutre detail_s_color .small">
+                                    <a class="postcard__img_link" href="{% url 'magazine_detail' magazine.id %}">
+                                        <img class="postcard__img" src="{{ magazine.image }}" alt="{{ magazine.name }}" />
+                                    </a>
+                                    <div class="postcard__text">
+                                        <table class="content-table">
+                                            <tr>
+                                                <td>
+                                                    <h1 class="postcard__title detail_s_color">
+                                                        <a class="in_detail dotted-link" href="{% url 'magazine_detail' magazine.id %}">{{ magazine.name }}</a>
+                                                    </h1>
+                                                    <div class="postcard__subtitle small">
+                                                        <h6 class="card-subtitle mb-2 lead">por {{ magazine.adm }}</h6>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <ul class="postcard__tagbox">
+                                                        <li class="tag__item play detail_s_color">{{ magazine.count_review }} avaliações</li>
+                                                        <li class="tag__item play detail_s_color {% if magazine.isActive %} active {% else %} inactive {% endif %}">{% if magazine.isActive %} Ativa {% else %} Inativa {% endif %}</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+    {% else %}
+        <p>Nenhuma revista encontrado.</p>
+    {% endif %}
+</div>
+
+{% include 'critics/pagination.html' %}
 
 {% endblock %}

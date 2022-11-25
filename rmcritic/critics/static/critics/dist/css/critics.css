@@ -2,7 +2,6 @@
 
 *{
     font-family: 'Lexend Deca', sans-serif!important;
-    color: #333;
     text-rendering: optimizeLegibility;
 }
 
@@ -68,6 +67,14 @@ hr{
     display: flex;
     position: relative;
     margin: 0 -5.5555%;
+}
+
+.top .top_artist.top_img{
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px)
 }
 
 .top .top_img{
@@ -145,6 +152,10 @@ hr{
     border-color:transparent;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #fa6830;
   }
+
+.pagination{
+    color:#333;
+}
 
 .current{
     margin: 0 5px;
@@ -237,6 +248,71 @@ hr{
     transform: scale(1.03);
 }
 
+.footer svg{
+    color:#858585!important;
+}
+
+.footer svg:hover{
+    color: #fa6830!important;
+}
+
+.footer{
+    padding: 0 5.5555%!important;
+    width: 100%;
+    color:#858585;
+}
+
+.footer-bar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-nav{
+    background-color: #ededed;
+}
+
+.main-footer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.main-footer img{
+    max-height: 25px;
+}
+
+.icons-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 4rem;
+}
+
+.footer-description{
+    font-size: 13px;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: justify;
+    line-height: normal;
+    font-weight: 200;
+}
+
+.footer-credits{
+    line-height: 1.4rem;
+}
+
+.footer-question{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size:11px;
+}
+
+.footer-wrapper{
+    width: fit-content!important;
+}
+
 @media (min-width: 576px){
     .top .cont-header{
         padding: 0 5.5555%!important;
@@ -264,5 +340,13 @@ hr{
 
     .headline img{
         max-height: 335px;
+    }
+
+    .main-footer{
+        flex-direction: row;
+    }
+
+    .footer-description{
+        width: 50%;
     }
 }
