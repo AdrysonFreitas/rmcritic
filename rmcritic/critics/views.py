@@ -73,6 +73,18 @@ class ArtistDetailView(generic.DetailView):
         context['worst_tracks'] = sorted(Track.objects.filter(parent_album__artist=self.get_object()), key=lambda m: m.rating)[:5]
         context['best_reviews'] = Review.objects.filter(artist=self.get_object()).order_by('-rating')[:5]
         context['worst_reviews'] = Review.objects.filter(artist=self.get_object()).order_by('rating')[:5]
+
+        alb = Album.objects.filter(artist=self.get_object())
+        epc = 0
+        lpc = 0
+        for x in alb:
+            if x.tracks > 8:
+                lpc += 1
+            else:
+                epc += 1
+
+        context['epc'] = epc
+        context['lpc'] = lpc
         return context
     template_name = 'critics/artist.html'
 

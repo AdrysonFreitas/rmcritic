@@ -2,32 +2,108 @@
 
 {% block content %}
 
-{% include 'critics/header.html' %}
+<div class="album-info top">
+    <div class="top_img img-fluid" style="background-image:url({{ album.artist.image }})"></div>
 
-<img src="{{ album.image }}" alt="{{ album.artist.name }} - {{ album.name }}" width="200" height="200"><br>
-{% if album.name|first in '*' %}
-    <h2>{{ album.name|slice:"1:" }} (Revisitado)</h2>
-{% else %}
-    <h2 class="h1">{{ album.name }}</h2>
-{% endif %}
-<a href="{% url 'artist_detail' album.artist.id %}">{{ album.artist.name }}</a>
-<br><br>
-{% if album.rating < 50 %} <h1 class="text-danger">{{ album.rating }}</h1> {% elif album.rating > 69 %} <h1 class="text-success"> {{ album.rating }}</h1> {% else %} <h1 class="text-warning">{{ album.rating }}</h1> {% endif %}
-Baseado em {{ album.count_review }} avaliações <br>
-Faixas: {{ album.tracks }}<br>
-Tipo: {% if album.tracks > 8 %} LP {% else %} EP {% endif %}<br>
-Gênero: {{ album.genre_list }}<br><br>
+    <div class="container cont-header p-0">
+        {% include 'critics/header.html' %}</div>
 
-<h3>Avaliações:</h3>
-{% for review in album.reviews.all %}
-    {{ review.rating }}<br>
-    <b><a class="dotted-link" href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a></b><br><br>
-{% endfor %}
+    <div class="bg-top {% if album.rating < 50 %} bad {% elif album.rating > 69 %} good {% else %} mixed {% endif %}"></div>
 
-<h3>Melhores faixas:</h3>
-{% for track in tracklist %}
-    {{ track.name }} - {{ track.rating }}<br>
-    <br>
-{% endfor %}
+    <div class="headline">
+        <div class="album-info headline-text">
+            <div class="badge-div">
+                <span class="badge badge-primary {% if album.rating < 50 %} bad {% elif album.rating > 69 %} good {% else %} mixed {% endif %}">{% if album.tracks > 8 %} LP {% else %} EP {% endif %}</span></h3>
+            </div>
+            <span class="genre-list mb-2">{{ album.genre_list }}</span>
+            <span class="tracks-number">{{ album.tracks }} faixas</span>
+            <h6 class="headline-artist lead"><a href="{% url 'artist_detail' album.artist.id %}">{{ album.artist.name }}</a></h6>
+            <h1 class="headline-title mb-0">
+                {% if album.name|first in '*' %}
+                    {{ album.name|slice:"1:" }} (Revisitado)
+                {% else %}
+                    {{ album.name }}
+                {% endif %}
+            </h1>
+        </div>
+        <div class="headline-rating">
+            <span class="rating-number">{{ album.rating }}</span>
+            <span class="reviews-number lead">Baseado em <span class="reviews-number-bold">{{ album.count_review }}</span> avaliações</span>
+        </div>
+        <div class="headline-img">
+            <img id="i" src="{{ album.image }}" alt="{{album.artist.name}} - {{album.name}}">
+        </div>
+    </div>
+</div>
+
+<div class="detail-page list-block pt-2 mb-5 pb-5">
+    <div class="main-footer">
+        <div class="reviews-side me-5">
+            <div class="search-field my-4">
+                <h4><span class="headingp mx-4">Avaliações:</span></h4>
+            </div>
+
+            <div class="reviews-display">
+                {% for review in album.reviews.all %}
+                    <div class="review-row">
+                        <div class="review-magazine">
+                            <div class="review-icon">
+                                <img src="{{ review.magazine.image }}" class="review-img" />
+                            </div>
+                            <span class="review-name ps-3">
+                                <a class="dotted-link" href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a>
+                            </span>
+                        </div>
+                        <div class="review-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %}">
+                            {{ review.rating }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="vr"></div>
+        <hr>
+        <div class="tracks-side">
+            <div class="search-field mt-4 mb-2">
+                <h4><span class="headingp mx-4">Melhores faixas:</span></h4>
+            </div>
+            <div class="tracks-display">
+                {% for track in tracklist %}
+                    <div class="track">
+                        <div class="track-info mb-2">
+                            <span class="track-name">{{ track.name }}</span>
+                            {% if track.featuring != '' %}
+                                {% if track.featuring != None%}
+                                    <span class="track-featuring">featuring {{ track.featuring }}</span>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="track-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://rmcritic.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 {% endblock %}

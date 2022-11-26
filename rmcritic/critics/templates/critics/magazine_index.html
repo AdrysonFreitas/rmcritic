@@ -3,9 +3,7 @@
 {% block content %}
 
 <div class="top">
-    <div class="top_artist top_img img-fluid" style="background-image:url({{ random_album.image }})">
-        
-    </div>
+    <div class="top_artist top_img img-fluid" style="background-image:url({{ random_album.image }})"></div>
 
     <div class="container cont-header p-0">
         {% include 'critics/header.html' %}</div>
@@ -44,9 +42,9 @@
                                                     <h1 class="postcard__title detail_s_color">
                                                         <a class="in_detail dotted-link" href="{% url 'magazine_detail' magazine.id %}">{{ magazine.name }}</a>
                                                     </h1>
-                                                    <div class="postcard__subtitle small">
-                                                        <h6 class="card-subtitle mb-2 lead">por {{ magazine.adm }}</h6>
-                                                    </div>
+                                                        <div class="postcard__subtitle small">
+                                                            <h6 class="card-subtitle mb-2 lead">{% if magazine.isActive %} por {{ magazine.adm }} {% else %} <br> {% endif %}</h6>
+                                                        </div>
                                                 </td>
                                             </tr>
                                             <tr>

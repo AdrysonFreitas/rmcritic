@@ -19,6 +19,7 @@ class Artist(models.Model):
     genre = models.ManyToManyField(Genre)
     count_review = models.IntegerField(default=0)
     avg = models.IntegerField(default=0)
+    count_albums = models.IntegerField(default=0)
 
     @property
     def avg(self):
