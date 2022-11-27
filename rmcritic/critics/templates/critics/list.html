@@ -1,0 +1,180 @@
+{% extends 'critics/base.html' %}
+
+{% block content %}
+
+<div class="album-info list-head top">
+    <div class="top_img img-fluid" style="background-image:url({% if list.type == 'tr'%}{{ random_album.parent_album.image }}{% else %}{{ random_album.image }}{% endif %})"></div>
+
+    <div class="container cont-header p-0">
+        {% include 'critics/header.html' %}</div>
+
+    <div class="bg-top neutre"></div>
+
+    <div class="headline">
+        <div class="album-info headline-text list-head mb-3">
+            <div class="badge-div">
+                <span class="badge badge-primary"></span></h3>
+            </div>
+            <!--<span class="genre-list mb-2"></span>-->
+            {% if magazine.alt_name != '' and magazine.alt_name != None %}<span class="right-side-contents-number mb-1" style="line-height:1;">também conhecida<br>como {{ magazine.alt_name }}</span>{% endif %}
+            <h6 class="headline-artist lead">{{ list.description }}</h6>
+            <h1 class="headline-title mb-0">{{ list.name }} </h1>
+        </div>
+    </div>
+</div>
+
+<div class="detail-page list-detail-page list-block pt-2 pb-5">
+    <div class="main-footer">
+        <div class="left-side-contents-side me-5 mt-3">
+            <div class="left-side-contents-display my-4">
+                {% for item in list_content %}
+                    {% if list.id in avg_lists %}
+                    <div class="left-side-content-row albums-rated {% if list.type == 'al' or list.type == 'tr'%}{% if item.rating < 50 %} bad {% elif item.rating > 69 %} good {% else %} mixed {% endif %}{% else %}{% if item.avg < 50 %} bad {% elif item.avg > 69 %} good {% else %} mixed {% endif %}{% endif %} {% if list.type == "ar" or list.type == "ma" %}armag{% endif %}">
+                        <div class="left-side-content-magazine">
+                            <div class="left-side-content-icon {% if list.type == "ar" or list.type == "ma" %}armag{% endif %}">
+                                <img src="{% if list.type == 'tr'%}{{ item.parent_album.image }}{% else %}{{ item.image }}{% endif %}" class="left-side-content-img in_album" />
+                            </div>
+                            <div class="left-side-content-album-info ps-3">
+                                <span class="left-side-content-name">
+                                    <a class="dotted-link" href="{% if list.type == "al" %}{% url 'album_detail' item.id %}{% elif list.type == "ar" %}{% url 'artist_detail' item.id %}{% elif list.type == "ma" %}{% url 'magazine_detail' item.id%}{% else %}#{% endif %}">
+                                        {% if item.name|first in '*' %}
+                                            {{ item.name|slice:"1:" }} (Revisitado)
+                                        {% else %}
+                                            {{ item.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                {% if list.type == 'al' or list.type == 'tr'%}
+                                <span class="left-side-content-art-name">
+                                    <a class="" href="{% if list.type == 'al'%}{% url 'artist_detail' item.artist.id %}{% else %}{% url 'artist_detail' item.parent_album.artist.id %}{% endif %}">
+                                        {% if list.type == 'al'%}
+                                            {{ item.artist.name }}
+                                        {% else %}
+                                            {{ item.parent_album.artist.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="left-side-content-rating {% if list.type == 'al' or list.type == 'tr'%}{% if item.rating < 50 %} bad {% elif item.rating > 69 %} good {% else %} mixed {% endif %}{% else %}{% if item.avg < 50 %} bad {% elif item.avg > 69 %} good {% else %} mixed {% endif %}{% endif %}">
+                            {% if list.type == 'al' or list.type == 'tr'%}
+                                {{ item.rating }}
+                            {% else %}
+                                {{ item.avg }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% elif list.id in app_lists %}
+                    <div class="left-side-content-row in_approve albums-rated {% if item.rating < 50 %} bad {% elif item.rating > 69 %} good {% else %} mixed {% endif %}">
+                        <div class="left-side-content-magazine">
+                            <div class="left-side-content-icon">
+                                <img src="{{ item.image }}" class="left-side-content-img in_album" />
+                            </div>
+                            <div class="left-side-content-album-info ps-3">
+                                <span class="left-side-content-name {% if list.type == "ar" or list.type == "ma" %}mb-2{% endif %}">
+                                    <a class="dotted-link" href="{% if list.type == "al" %}{% url 'album_detail' item.id %}{% elif list.type == "ar" %}{% url 'artist_detail' item.id %}{% elif list.type == "ma" %}{% url 'magazine_detail' item.id%}{% else %}#{% endif %}">
+                                        {% if item.name|first in '*' %}
+                                            {{ item.name|slice:"1:" }} (Revisitado)
+                                        {% else %}
+                                            {{ item.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                {% if list.type == 'al' or list.type == 'tr'%}
+                                <span class="left-side-content-art-name">
+                                    <a class="" href="{% if list.type == 'al'%}{% url 'artist_detail' item.artist.id %}{% else %}{% url 'artist_detail' item.parent_album.artist.id %}{% endif %}">
+                                        {% if list.type == 'al'%}
+                                            {{ item.artist.name }}
+                                        {% else %}
+                                            {{ item.parent_album.artist.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                {% endif %}
+                                <div class="progress mt-1" style="height: 5px; width:100%">
+                                    <div class="progress-bar good" role="progressbar" style="width: {{ item.approve_index }}%;" aria-valuenow="{{approve_index}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="left-side-content-rating good">
+                            {% if list.type == "ma" %}
+                                {{ item.approve_index }}% das avaliações dadas foram positivas
+                            {% else %}
+                                {{ item.approve_index }}% das revistas que avaliaram gostaram
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="left-side-content-row in_approve albums-rated {% if item.rating < 50 %} bad {% elif item.rating > 69 %} good {% else %} mixed {% endif %}">
+                        <div class="left-side-content-magazine">
+                            <div class="left-side-content-icon">
+                                <img src="{{ item.image }}" class="left-side-content-img in_album" />
+                            </div>
+                            <div class="left-side-content-album-info ps-3">
+                                <span class="left-side-content-name {% if list.type == "ar" or list.type == "ma" %}mb-2{% endif %}">
+                                    <a class="dotted-link" href="{% if list.type == "al" %}{% url 'album_detail' item.id %}{% elif list.type == "ar" %}{% url 'artist_detail' item.id %}{% elif list.type == "ma" %}{% url 'magazine_detail' item.id%}{% else %}#{% endif %}">
+                                        {% if item.name|first in '*' %}
+                                            {{ item.name|slice:"1:" }} (Revisitado)
+                                        {% else %}
+                                            {{ item.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                {% if list.type == 'al' or list.type == 'tr'%}
+                                <span class="left-side-content-art-name">
+                                    <a class="" href="{% if list.type == 'al'%}{% url 'artist_detail' item.artist.id %}{% else %}{% url 'artist_detail' item.parent_album.artist.id %}{% endif %}">
+                                        {% if list.type == 'al'%}
+                                            {{ item.artist.name }}
+                                        {% else %}
+                                            {{ item.parent_album.artist.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                {% endif %}
+                                <div class="progress mt-1" style="height: 5px; width:100%">
+                                    <div class="progress-bar bad" role="progressbar" style="width: {{ item.disapprove_index }}%;" aria-valuenow="{{disapprove_index}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="left-side-content-rating bad">
+                            {% if list.type == "ma" %}
+                                {{ item.disapprove_index }}% das avaliações dadas foram negativas
+                            {% else %}
+                                {{ item.disapprove_index }}% das revistas que avaliaram não gostaram
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if page_obj.has_next or page_obj.has_previous %}
+                <div class="pagination-div mt-4">
+                    {% include "critics/pagination.html" %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://rmcritic.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endblock %}

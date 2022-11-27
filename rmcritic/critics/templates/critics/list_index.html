@@ -1,0 +1,102 @@
+{% extends 'critics/base.html' %}
+
+{% block content %}
+
+<div class="lists-page top">
+     <div class="container cont-header p-0">
+        {% include 'critics/header.html' %}</div>
+</div>
+
+<div class="lists-page list-block">
+    <div class="hall-heading">
+        <div class="h1">
+            <span>Hall of RMCritic</span>
+        </div>
+    </div>
+    <div class="albums-lists">
+        <div class="search-field my-4">
+            <span class="headingp mx-4">Listas de Álbuns:</span>
+        </div>
+        <div class="left-side-contents-display">
+            {% for list in lists_list%}
+                {% if list.type == 'al' %}
+                <div class="left-side-content-row">
+                    <div class="left-side-content-icon">
+                        <img src="{% if list.id == 1 %}{{ big_alb_by_avg.image }}{% elif list.id == 2 %}{{ big_alb_by_app.image }}{% elif list.id == 3 %}{{ big_alb_by_dis.image }}{% endif %}" class="left-side-content-img in_album" />
+                    </div>
+                    <span class="left-side-content-name ms-3">
+                            <a class="dotted-link" href="{% url 'list_detail' list.id %}">
+                                {{ list.name }}
+                            </a>
+                    </span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="">
+        <div class="search-field my-4">
+            <span class="headingp mx-4">Listas de Faixas:</span>
+        </div>
+        <div class="left-side-contents-display">
+            {% for list in lists_list%}
+                {% if list.type == 'tr' %}
+                <div class="left-side-content-row">
+                    <div class="left-side-content-icon">
+                        <img src="{% if list.id == 4 %}{{ big_tra_by_best.parent_album.image }}{% elif list.id == 5 %}{{ big_tra_by_worst.parent_album.image }}{% endif %}" class="left-side-content-img in_album" />
+                    </div>
+                    <span class="left-side-content-name ms-3">
+                            <a class="dotted-link" href="{% url 'list_detail' list.id %}">
+                                {{ list.name }}
+                            </a>
+                    </span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="">
+        <div class="search-field my-4">
+            <span class="headingp mx-4">Listas de Artistas:</span>
+        </div>
+        <div class="left-side-contents-display">
+            {% for list in lists_list%}
+                {% if list.type == 'ar' %}
+                <div class="left-side-content-row">
+                    <div class="left-side-content-icon">
+                        <img src="{% if list.id == 6 %}{{ big_art_by_avg.image }}{% elif list.id == 7 %}{{ big_art_by_app.image }}{% elif list.id == 8 %}{{ big_art_by_dis.image }}{% endif %}" class="left-side-content-img in_album" />
+                    </div>
+                    <span class="left-side-content-name ms-3">
+                            <a class="dotted-link" href="{% url 'list_detail' list.id %}">
+                                {{ list.name }}
+                            </a>
+                    </span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="">
+        <div class="search-field my-4">
+            <span class="headingp mx-4">Listas de Revistas:</span>
+        </div>
+        <div class="left-side-contents-display">
+            {% for list in lists_list%}
+                {% if list.type == 'ma' %}
+                <div class="left-side-content-row">
+                    <div class="left-side-content-icon">
+                        <img src="{% if list.id == 9 %}{{ big_mag_by_avg.image }}{% elif list.id == 10 %}{{ big_mag_by_app.image }}{% elif list.id == 11 %}{{ big_mag_by_dis.image }}{% endif %}" class="left-side-content-img in_album" />
+                    </div>
+                    <span class="left-side-content-name ms-3">
+                            <a class="dotted-link" href="{% url 'list_detail' list.id %}">
+                                {{ list.name }}
+                            </a>
+                    </span>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

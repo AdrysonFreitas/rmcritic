@@ -1,0 +1,12 @@
+id,name,description,type
+1,Álbuns por média,Álbuns listados pela maior média,al
+2,Os 10 álbuns mais agradáveis,Álbuns listados por terem maior índice de notas positivas,al
+3,Os 10 álbuns mais desagradáveis,Álbuns listados por terem maior índice de notas negativas,al
+4,As 10 melhores faixas,Faixas listadas por terem maior média,tr
+5,As 10 piores faixas,Faixas listadas por terem menor média,tr
+6,Artistas por média,Artistas listados pela maior média,ar
+7,Os 10 artistas mais agradáveis,Artistas listados por terem maior índice de notas positivas,ar
+8,Os 10 artistas mais desagradáveis,Artistas listados por terem maior índice de notas negativas,ar
+9,Revistas por média,Revistas listadas por média de notas dadas,ma
+10,As 10 revistas mais boazinhas,Revistas listadas por terem maior índice de notas positivas dadas,ma
+11,As 10 revistas mais exigentes,Revistas listadas por terem maior índice de notas negativas dadas,ma

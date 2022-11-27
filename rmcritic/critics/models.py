@@ -23,7 +23,10 @@ class Artist(models.Model):
 
     @property
     def avg(self):
-        return self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        r = self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        if r is None:
+            r = 0
+        return r
 
     @property
     def count_review(self):
@@ -32,6 +35,36 @@ class Artist(models.Model):
     @property
     def count_albums(self):
         return self.albums.aggregate(count_albums=Count('id'))['count_albums']
+
+    @property
+    def approve_index(self):
+        r = self.reviews.filter(rating__gte = 61).aggregate(approve=Count('rating'))['approve']
+        if r == None:
+            r = 0
+
+        a = self.reviews.aggregate(count_review=Count('rating'))['count_review']
+
+        if a != 0:
+            a_i = round((r/a) * 100)
+        else:
+            a_i = 0
+
+        return a_i
+
+    @property
+    def disapprove_index(self):
+        r = self.reviews.filter(rating__lte = 59).aggregate(disapprove=Count('rating'))['disapprove']
+        if r == None:
+            r = 0
+
+        a = self.reviews.aggregate(count_review=Count('rating'))['count_review']
+
+        if a != 0:
+            d_i = round((r/a) * 100)
+        else:
+            d_i = 0
+    
+        return d_i
 
     def genre_list(self):
         return ', '.join([a.name for a in self.genre.all()])
@@ -57,11 +90,44 @@ class Album(models.Model):
 
     @property
     def rating(self):
-        return self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        r = self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        if r == None:
+            r = 0
+        return r
 
     @property
     def count_review(self):
         return self.reviews.aggregate(count_review=Count('rating'))['count_review']
+
+    @property
+    def approve_index(self):
+        r = self.reviews.filter(rating__gte = 61).aggregate(approve=Count('rating'))['approve']
+        if r == None:
+            r = 0
+
+        a = self.reviews.aggregate(count_review=Count('rating'))['count_review']
+
+        if a != 0:
+            a_i = round((r/a) * 100)
+        else:
+            a_i = 0
+
+        return a_i
+
+    @property
+    def disapprove_index(self):
+        r = self.reviews.filter(rating__lte = 59).aggregate(disapprove=Count('rating'))['disapprove']
+        if r == None:
+            r = 0
+
+        a = self.reviews.aggregate(count_review=Count('rating'))['count_review']
+
+        if a != 0:
+            d_i = round((r/a) * 100)
+        else:
+            d_i = 0
+    
+        return d_i
 
     @property
     def tracks(self):
@@ -126,11 +192,44 @@ class Magazine(models.Model):
 
     @property
     def avg(self):
-        return self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
-    
+        r = self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        if r is None:
+            r = 0
+        return r
+
     @property
     def count_review(self):
         return self.reviews.aggregate(count_review=Count('rating'))['count_review']
+
+    @property
+    def approve_index(self):
+        r = self.reviews.filter(rating__gte = 61).aggregate(approve=Count('rating'))['approve']
+        if r == None:
+            r = 0
+
+        a = self.reviews.aggregate(count_review=Count('rating'))['count_review']
+
+        if a != 0:
+            a_i = round((r/a) * 100)
+        else:
+            a_i = 0
+
+        return a_i
+
+    @property
+    def disapprove_index(self):
+        r = self.reviews.filter(rating__lte = 59).aggregate(disapprove=Count('rating'))['disapprove']
+        if r == None:
+            r = 0
+
+        a = self.reviews.aggregate(count_review=Count('rating'))['count_review']
+
+        if a != 0:
+            d_i = round((r/a) * 100)
+        else:
+            d_i = 0
+    
+        return d_i
 
     class Meta:
         ordering = ['name']
@@ -171,3 +270,29 @@ class ReviewTrack(models.Model):
 
     def __str__(self):
         return str(self.track)
+
+class List(models.Model):
+    ALBUM = 'al'
+    ARTIST = 'ar'
+    TRACK = 'tr'
+    MAGAZINE = 'ma'
+    type_choices = [
+    (ALBUM, 'Álbum'),
+    (ARTIST, 'Artista'),
+    (TRACK, 'Faixa'),
+    (MAGAZINE, 'Revista'),]
+
+    name = models.CharField(max_length=300)
+    description = models.TextField(max_length=500)
+    type = models.CharField(
+        max_length=2,
+        choices=type_choices,
+        default=ALBUM,
+    )
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return str(self.name)
+

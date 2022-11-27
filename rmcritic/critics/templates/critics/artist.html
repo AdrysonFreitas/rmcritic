@@ -16,13 +16,13 @@
                 <span class="badge badge-primary {% if artist.avg < 50 %} bad {% elif artist.avg > 69 %} good {% else %} mixed {% endif %}">{% if album.tracks > 8 %} LP {% else %} EP {% endif %}</span></h3>
             </div>-->
             <span class="genre-list mb-2">{{ artist.genre_list }}</span>
-            <span class="tracks-number">{{ artist.count_albums }} {% if artist.count_albums != 1 %} trabalhos {% else %} trabalho {% endif %}</span>
+            <span class="right-side-contents-number">{{ artist.count_albums }} {% if artist.count_albums != 1 %} trabalhos {% else %} trabalho {% endif %}</span>
             <h6 class="headline-artist lead">{{ artist.country }}</h6>
             <h1 class="headline-title mb-0">{{ artist.name }} </h1>
         </div>
         <div class="headline-rating">
             <span class="rating-number">{{ artist.avg }}</span>
-            <span class="reviews-number lead">Baseado em <span class="reviews-number-bold">{{ artist.count_review }}</span> avaliações</span>
+            <span class="left-side-contents-number lead">Baseado em <span class="left-side-contents-number-bold">{{ artist.count_review }}</span> avaliações</span>
         </div>
         <div class="headline-img circle-img">
             <img id="i" src="{{ artist.image }}" alt="{{artist.name}}">
@@ -32,22 +32,22 @@
 
 <div class="detail-page list-block pt-2 mb-5 pb-5">
     <div class="main-footer">
-        <div class="reviews-side me-5">
+        <div class="left-side-contents-side me-5">
             {% if lpc != 0 %}
             <div class="albums-rated">
                 <div class="search-field my-4">
                     <h4><span class="headingp mx-4">Álbuns:</span></h4>
                 </div>
 
-                <div class="reviews-display">
+                <div class="left-side-contents-display">
                     {% for work in artist.albums.all %}
                         {% if work.tracks > 8 %}
-                        <div class="review-row {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
-                            <div class="review-magazine">
-                                <div class="review-icon">
-                                    <img src="{{ work.image }}" class="review-img in_album" />
+                        <div class="left-side-content-row {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
+                            <div class="left-side-content-magazine">
+                                <div class="left-side-content-icon">
+                                    <img src="{{ work.image }}" class="left-side-content-img in_album" />
                                 </div>
-                                <span class="review-name ps-3">
+                                <span class="left-side-content-name ps-3">
                                     <a class="dotted-link" href="{% url 'album_detail' work.id %}">
                                         {% if work.name|first in '*' %}
                                             {{ work.name|slice:"1:" }} (Revisitado)
@@ -57,7 +57,7 @@
                                     </a>
                                 </span>
                             </div>
-                            <div class="review-rating {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
+                            <div class="left-side-content-rating {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
                                 {{ work.rating }}
                             </div>
                         </div>
@@ -75,12 +75,12 @@
                 <div>
                     {% for work in artist.albums.all %}
                         {% if work.tracks <= 8 %}
-                        <div class="review-row {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
-                            <div class="review-magazine">
-                                <div class="review-icon">
-                                    <img src="{{ work.image }}" class="review-img in_album" />
+                        <div class="left-side-content-row {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
+                            <div class="left-side-content-magazine">
+                                <div class="left-side-content-icon">
+                                    <img src="{{ work.image }}" class="left-side-content-img in_album" />
                                 </div>
-                                <span class="review-name ps-3">
+                                <span class="left-side-content-name ps-3">
                                     <a class="dotted-link" href="{% url 'album_detail' work.id %}">
                                         {% if work.name|first in '*' %}
                                             {{ work.name|slice:"1:" }} (Revisitado)
@@ -90,7 +90,7 @@
                                     </a>
                                 </span>
                             </div>
-                            <div class="review-rating {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
+                            <div class="left-side-content-rating {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
                                 {{ work.rating }}
                             </div>
                         </div>
@@ -102,23 +102,23 @@
         </div>
         <div class="vr"></div>
         <hr>
-        <div class="tracks-side">
+        <div class="right-side-contents-side">
             <div class="best-tracks-div">
                 <div class="search-field mt-4 mb-2">
                     <h4><span class="headingp mx-4">Melhores faixas:</span></h4>
                 </div>
-                <div class="tracks-display">
+                <div class="right-side-contents-display">
                     {% for track in best_tracks %}
-                        <div class="track">
-                            <div class="track-info mb-2">
-                                <span class="track-name">{{ track.name }}</span>
+                        <div class="right-side-content">
+                            <div class="right-side-content-info mb-2">
+                                <span class="right-side-content-name">{{ track.name }}</span>
                                 {% if track.featuring != '' %}
                                     {% if track.featuring != None%}
-                                        <span class="track-featuring">featuring {{ track.featuring }}</span>
+                                        <span class="right-side-content-featuring">featuring {{ track.featuring }}</span>
                                     {% endif %}
                                 {% endif %}
                             </div>
-                            <div class="track-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
+                            <div class="right-side-content-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
                         </div>
                     {% endfor %}
                 </div>
@@ -127,20 +127,54 @@
                 <div class="search-field mt-4 mb-2">
                     <h4><span class="headingp mx-4">Piores faixas:</span></h4>
                 </div>
-                <div class="tracks-display">
+                <div class="right-side-contents-display">
                     {% for track in worst_tracks %}
-                        <div class="track">
-                            <div class="track-info mb-2">
-                                <span class="track-name">{{ track.name }}</span>
+                        <div class="right-side-content">
+                            <div class="right-side-content-info mb-2">
+                                <span class="right-side-content-name">{{ track.name }}</span>
                                 {% if track.featuring != '' %}
                                     {% if track.featuring != None%}
-                                        <span class="track-featuring">featuring {{ track.featuring }}</span>
+                                        <span class="right-side-content-featuring">featuring {{ track.featuring }}</span>
                                     {% endif %}
                                 {% endif %}
                             </div>
-                            <div class="track-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
+                            <div class="right-side-content-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
                         </div>
                     {% endfor %}
+                </div>
+            </div>
+            <div class="best-tracks-div">
+                <div class="search-field mt-4 mb-2">
+                    <h4><span class="headingp mx-4">Notas:</span></h4>
+                </div>
+                <div class="right-side-contents-display">
+                    <div class="right-side-content">
+                        <div class="right-side-content-info bars mb-2">
+                            <span class="right-side-content-name me-2">Boas</span>
+                            <div class="progress" style="height: 5px; width:100%">
+                                <div class="progress-bar good" role="progressbar" style="width: {% widthratio good total 100 %}%;" aria-valuenow="{{good}}" aria-valuemin="0" aria-valuemax="{{total}}"></div>
+                            </div>
+                        </div>
+                        <div class="right-side-content-rating ms-2">{% widthratio good total 100 %}%</div>
+                    </div>
+                    <div class="right-side-content">
+                        <div class="right-side-content-info bars mb-2">
+                            <span class="right-side-content-name me-2">Mistas </span>
+                            <div class="progress" style="height: 5px; width:100%">
+                                <div class="progress-bar mixed" role="progressbar" style="width: {% widthratio mixed total 100 %}%;" aria-valuenow="{{mixed}}" aria-valuemin="0" aria-valuemax="{{total}}"></div>
+                            </div>
+                        </div>
+                        <div class="right-side-content-rating ms-2">{% widthratio mixed total 100 %}%</div>
+                    </div>
+                    <div class="right-side-content">
+                        <div class="right-side-content-info bars mb-2">
+                            <span class="right-side-content-name me-2">Ruins </span>
+                            <div class="progress" style="height: 5px; width:100%">
+                                <div class="progress-bar bad" role="progressbar" style="width: {% widthratio bad total 100 %}%;" aria-valuenow="{{bad}}" aria-valuemin="0" aria-valuemax="{{total}}"></div>
+                            </div>
+                        </div>
+                        <div class="right-side-content-rating ms-2">{% widthratio bad total 100 %}%</div>
+                    </div>
                 </div>
             </div>
             <div class="biggest-ratings">
@@ -149,10 +183,10 @@
                 </div>
                 <div class="ratings-rank-display">
                     {% for review in best_reviews %}
-                        <div class="track">
-                            <div class="track-info mb-2">
-                                <span class="track-name"><a href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a></span>
-                                <span class="track-featuring"><a href="{% url 'album_detail' review.album.id %}">
+                        <div class="right-side-content">
+                            <div class="right-side-content-info mb-2">
+                                <span class="right-side-content-name"><a href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a></span>
+                                <span class="right-side-content-featuring"><a href="{% url 'album_detail' review.album.id %}">
                                     {% if review.album.name|first in '*' %}
                                         {{ review.album.name|slice:"1:" }} (Revisitado)
                                     {% else %}
@@ -160,7 +194,7 @@
                                     {% endif %}
                                 </a></span>
                             </div>
-                            <div class="track-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ review.rating }}</div>
+                            <div class="right-side-content-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ review.rating }}</div>
                         </div>
                     {% endfor %}
                 </div>
@@ -171,10 +205,10 @@
                 </div>
                 <div class="ratings-rank-display">
                     {% for review in worst_reviews %}
-                        <div class="track">
-                            <div class="track-info mb-2">
-                                <span class="track-name"><a href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a></span>
-                                <span class="track-featuring"><a href="{% url 'album_detail' review.album.id %}">
+                        <div class="right-side-content">
+                            <div class="right-side-content-info mb-2">
+                                <span class="right-side-content-name"><a href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a></span>
+                                <span class="right-side-content-featuring"><a href="{% url 'album_detail' review.album.id %}">
                                     {% if review.album.name|first in '*' %}
                                         {{ review.album.name|slice:"1:" }} (Revisitado)
                                     {% else %}
@@ -182,7 +216,7 @@
                                     {% endif %}
                                 </a></span>
                             </div>
-                            <div class="track-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ review.rating }}</div>
+                            <div class="right-side-content-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ review.rating }}</div>
                         </div>
                     {% endfor %}
                 </div>

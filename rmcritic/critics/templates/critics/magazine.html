@@ -2,33 +2,180 @@
 
 {% block content %}
 
-{% include 'critics/header.html' %}
+<div class="album-info top">
+    <div class="top_img img-fluid" style="background-image:url({{ magazine.image }})"></div>
 
-<img src="{{ magazine.image }}" alt="{{ magazine.name }}" width="200" height="200"><br>
-<h2 class="display-3">{{ magazine.name }}</h2>
-Administrada por {{ magazine.adm }}<br>
-{% if magazine.alt_name != None %}
-    {% if magazine.alt_name != '' %}
-        Também conhecida como {{ magazine.alt_name }}<br>
-    {% endif %}
-{% endif %}
-Média: {{ magazine.avg }}<br>
-Baseado em {{ magazine.count_review }} avaliações <br>
-{% if magazine.isActive == True %}
-    Ativa<br><br>
-{% else %}
-    Inativa<br><br>
-{% endif %}
+    <div class="container cont-header p-0">
+        {% include 'critics/header.html' %}</div>
 
-<h3>Avaliações:</h3>
-{% for review in magazine.reviews.all %}
-    {{ review.rating }}<br>
-    {% if review.album.name|first in '*' %}
-        <b><a class="dotted-link" href="{% url 'album_detail' review.album.id %}">{{ review.album.name|slice:"1:" }} (Revisitado)</a></b><br>
-    {% else %}
-        <b><a class="dotted-link" href="{% url 'album_detail' review.album.id %}">{{ review.album.name }}</a></b><br>
-    {% endif %}
-    <a href="{% url 'artist_detail' review.artist.id %}">{{ review.artist.name }}</a><br><br>
-{% endfor %}
+    <div class="bg-top {% if magazine.avg < 50 %} bad {% elif magazine.avg > 69 %} good {% else %} mixed {% endif %}"></div>
+
+    <div class="headline">
+        <div class="album-info headline-text">
+            <div class="badge-div">
+                <span class="badge badge-primary {% if magazine.avg < 50 %} bad {% elif magazine.avg > 69 %} good {% else %} mixed {% endif %} {% if not magazine.isActive %}inactive{% endif %}">{% if magazine.isActive %} Ativa {% else %} Inativa {% endif %}</span></h3>
+            </div>
+            <!--<span class="genre-list mb-2"></span>-->
+            {% if magazine.alt_name != '' and magazine.alt_name != None %}<span class="right-side-contents-number mb-1" style="line-height:1;">também conhecida<br>como {{ magazine.alt_name }}</span>{% endif %}
+            {% if magazine.isActive %}<h6 class="headline-artist lead">por {{ magazine.adm }}</h6>{% endif %}
+            <h1 class="headline-title mb-0">{{ magazine.name }} </h1>
+        </div>
+        <div class="headline-rating">
+            <span class="rating-number">{{ magazine.avg }}</span>
+            <span class="left-side-contents-number lead">Média de <span class="left-side-contents-number-bold">{{ magazine.count_review }}</span> avaliações</span>
+        </div>
+        <div class="headline-img circle-img">
+            <img id="i" src="{{ magazine.image }}" alt="{{magazine.name}}">
+        </div>
+    </div>
+</div>
+
+<div class="detail-page list-block pt-2 mb-5 pb-5">
+    <div class="main-footer">
+        <div class="left-side-contents-side me-5">
+            <div class="search-field my-4">
+                <h4><span class="headingp mx-4">Álbuns Melhor Avaliados:</span></h4>
+            </div>
+
+            <div class="left-side-contents-display">
+                {% for review in reviewed_albums %}
+                    <div class="left-side-content-row albums-rated {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %}">
+                        <div class="left-side-content-magazine">
+                            <div class="left-side-content-icon">
+                                <img src="{{ review.album.image }}" class="left-side-content-img in_album" />
+                            </div>
+                            <div class="left-side-content-album-info ps-3">
+                                <span class="left-side-content-name">
+                                    <a class="dotted-link" href="{% url 'album_detail' review.album.id %}">
+                                        {% if review.album.name|first in '*' %}
+                                            {{ review.album.name|slice:"1:" }} (Revisitado)
+                                        {% else %}
+                                            {{ review.album.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                <span class="left-side-content-art-name">
+                                    <a class="" href="{% url 'artist_detail' review.album.artist.id %}">
+                                        {{ review.album.artist.name }}
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="left-side-content-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %}">
+                            {{ review.rating }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if page_obj.has_next or page_obj.has_previous %}
+                <div class="pagination-div mt-4">
+                    {% include "critics/pagination.html" %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="vr"></div>
+        <hr>
+        <div class="right-side-contents-side">
+            <div class="best-tracks-div">
+                <div class="search-field mt-4 mb-2">
+                    <h4><span class="headingp mx-4">Notas:</span></h4>
+                </div>
+                <div class="right-side-contents-display">
+                    <div class="right-side-content">
+                        <div class="right-side-content-info bars mb-2">
+                            <span class="right-side-content-name me-2">Boas</span>
+                            <div class="progress" style="height: 5px; width:100%">
+                                <div class="progress-bar good" role="progressbar" style="width: {% widthratio good total 100 %}%;" aria-valuenow="{{good}}" aria-valuemin="0" aria-valuemax="{{total}}"></div>
+                            </div>
+                        </div>
+                        <div class="right-side-content-rating ms-2">{% widthratio good total 100 %}%</div>
+                    </div>
+                    <div class="right-side-content">
+                        <div class="right-side-content-info bars mb-2">
+                            <span class="right-side-content-name me-2">Mistas </span>
+                            <div class="progress" style="height: 5px; width:100%">
+                                <div class="progress-bar mixed" role="progressbar" style="width: {% widthratio mixed total 100 %}%;" aria-valuenow="{{mixed}}" aria-valuemin="0" aria-valuemax="{{total}}"></div>
+                            </div>
+                        </div>
+                        <div class="right-side-content-rating ms-2">{% widthratio mixed total 100 %}%</div>
+                    </div>
+                    <div class="right-side-content">
+                        <div class="right-side-content-info bars mb-2">
+                            <span class="right-side-content-name me-2">Ruins </span>
+                            <div class="progress" style="height: 5px; width:100%">
+                                <div class="progress-bar bad" role="progressbar" style="width: {% widthratio bad total 100 %}%;" aria-valuenow="{{bad}}" aria-valuemin="0" aria-valuemax="{{total}}"></div>
+                            </div>
+                        </div>
+                        <div class="right-side-content-rating ms-2">{% widthratio bad total 100 %}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="best-tracks-div">
+                <div class="search-field mt-4 mb-2">
+                    <h4><span class="headingp mx-4">Faixas favoritas:</span></h4>
+                </div>
+                <div class="right-side-contents-display">
+                    {% for track in best_tracks %}
+                        <div class="right-side-content">
+                            <div class="right-side-content-info mb-2">
+                                <span class="right-side-content-name">{{ track.track.name }}</span>
+                                <span class="right-side-content-featuring in_mag"><a href="{% url 'album_detail' track.review.album.id %}">
+                                    {% if track.review.album.name|first in '*' %}
+                                        {{ track.review.album.name|slice:"1:" }} (Revisitado)
+                                    {% else %}
+                                        {{ track.review.album.name }}
+                                    {% endif %}
+                                </a></span>
+                            </div>
+                            <div class="right-side-content-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="best-tracks-div">
+                <div class="search-field mt-4 mb-2">
+                    <h4><span class="headingp mx-4">Faixas que odeia:</span></h4>
+                </div>
+                <div class="right-side-contents-display">
+                    {% for track in worst_tracks %}
+                        <div class="right-side-content">
+                            <div class="right-side-content-info mb-2">
+                                <span class="right-side-content-name">{{ track.track.name }}</span>
+                                <span class="right-side-content-featuring in_mag"><a href="{% url 'album_detail' track.review.album.id %}">
+                                    {% if track.review.album.name|first in '*' %}
+                                        {{ track.review.album.name|slice:"1:" }} (Revisitado)
+                                    {% else %}
+                                        {{ track.review.album.name }}
+                                    {% endif %}
+                                </a></span>
+                            </div>
+                            <div class="right-side-content-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://rmcritic.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 {% endblock %}

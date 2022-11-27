@@ -31,7 +31,7 @@ b{
 .navbar-brand{
     font-size: 30px;
     font-weight: 800;
-    background: -webkit-linear-gradient(60deg,#fa6830, #fc432c);
+    background: -webkit-linear-gradient(60deg,#ffe172, #ff1223);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -369,6 +369,10 @@ hr{
     background: #f8f9fa;
 }
 
+.album-info.headline-text .badge-primary.inactive{
+    background: rgb(248 249 250 / 52%);
+}
+
 .album-info.headline-text .badge-primary.good{
     color: #6c3;
 }
@@ -382,7 +386,7 @@ hr{
 }
 
 .album-info.headline-text .badge-primary.neutre{
-    color: #6c3;
+    color: rgb(46, 46, 46);
 }
 
 .album-info.headline-text a:hover{
@@ -408,7 +412,7 @@ hr{
     letter-spacing: 1px;
 }
 
-.album-info.headline-text .tracks-number{
+.album-info.headline-text .right-side-contents-number{
     font-weight: 400;
     text-transform: uppercase;
     color: #f8f9fa;
@@ -435,7 +439,8 @@ hr{
 }
 
 .bg-top.neutre{
-    background-color: #6c3;
+    background-color: rgb(26, 26, 26);
+    opacity: 0.5;
 }
 
 .detail-page.list-block{
@@ -453,62 +458,62 @@ hr{
     font-size: medium;
 }
 
-.reviews-side{
+.left-side-contents-side{
     width:100%;
 }
 
-.tracks-display{
+.right-side-contents-display{
     font-size: 15px;
     font-weight: 300;
     min-width: 15rem;
 }
 
-.track {
+.right-side-content {
     display: flex;
     justify-content: space-between;
 }
 
-.track-info {
+.right-side-content-info {
     display: flex;
     flex-direction: column;
 }
 
-span.track-featuring {
+span.right-side-content-featuring {
     font-weight: 200;
     text-transform: uppercase;
     font-size: x-small;
     color: #999;
 }
 
-span.track-name {
+span.right-side-content-name {
     line-height: 1;
 }
 
-.track-rating.good{
+.right-side-content-rating.good{
     background: none;
     font-weight: 600;
     color: #6c3;
 }
 
-.track-rating.mixed{
+.right-side-content-rating.mixed{
     background: none;
     font-weight: 600;
     color: #fc3;
 }
 
-.track-rating.bad{
+.right-side-content-rating.bad{
     background: none;
     font-weight: 600;
     color: #f00;
 }
 
-.track-rating.neutre{
+.right-side-content-rating.neutre{
     background: none;
     font-weight: 600;
     color: #6c3;
 }
 
-.tracks-side h4, .reviews-side h4{
+.right-side-contents-side h4, .left-side-contents-side h4{
     width:100%;
     text-align: center;
 }
@@ -519,51 +524,60 @@ span.track-name {
     padding: 1rem 0;
 }
 
-.review-row {
+.left-side-content-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.review-row.good{
+.left-side-content-row.good{
     background: none;
     border-bottom: 2px solid #6c3;
 }
 
-.review-row.mixed{
+.left-side-content-row.mixed{
     background: none;
     border-bottom: 2px solid #fc3;
 }
 
-.review-row.bad{
+.left-side-content-row.bad{
     background: none;
     border-bottom: 2px solid #f00;
 }
 
-.review-magazine {
+.left-side-content-magazine {
     display: flex;
     align-items: center;
 }
 
-span.review-name {
+.in_approve .left-side-content-magazine, .in_approve .left-side-content-album-info{
+    width: 100%;
+}
+
+.left-side-content-row.in_approve{
+    background: none;
+    border-bottom: 0px solid #f00;
+}
+
+span.left-side-content-name {
     font-weight: 700;
     font-size: 16px;
 }
 
-img.review-img {
+img.left-side-content-img {
     max-height: 3rem;
     border-radius: 87px;
 }
 
-.albums-rated img.review-img, .eps-rated img.review-img {
+.albums-rated img.left-side-content-img, .eps-rated img.left-side-content-img {
     border-radius: 0;
 }
 
-.review-icon {
+.left-side-content-icon {
     max-height: 4rem;
 }
 
-.review-rating {
+.left-side-content-rating {
     color: #f8f9fa;
     width: 3rem;
     height: 3rem;
@@ -573,7 +587,7 @@ img.review-img {
     justify-content: center;
 }
 
-.review-row + .review-row{
+.left-side-content-row + .left-side-content-row{
     margin-top: 1.5rem;
 }
 
@@ -593,7 +607,7 @@ span.rating-number {
     line-height: 1;
 }
 
-span.reviews-number.lead {
+span.left-side-contents-number.lead {
     font-size: 13px;
     text-transform: uppercase;
     color: rgba(248, 249, 250, 0.671)!important;
@@ -602,19 +616,20 @@ span.reviews-number.lead {
     font-weight: 400;
 }
 
-span.reviews-number-bold {
+span.left-side-contents-number-bold {
     font-weight: 700;
     font-size: 15px;
     color: #f8f9fa;
 }
 
-.smallest-ratings .track-featuring,.biggest-ratings .track-featuring{
+.smallest-ratings .right-side-content-featuring,.biggest-ratings .right-side-content-featuring, .right-side-content-featuring.in_mag{
     font-size: smaller;
-    text-transform: capitalize;
+    text-transform: none;
 }
 
-.smallest-ratings .track-featuring a,.biggest-ratings .track-featuring a{
+.smallest-ratings .right-side-content-featuring a,.biggest-ratings .right-side-content-featuring a, .right-side-content-featuring a{
     color:#999;
+    text-transform: none;
 }
 
 .headline-img.circle-img{
@@ -632,31 +647,167 @@ span.reviews-number-bold {
     width: 100%;
 }
 
-@media (min-width: 775px){
-    .main-footer{
-        flex-direction: row;
-    }
-
-    .footer-description{
-        width: 50%;
-    }
-
-    .detail-page.list-block .vr{
-        min-height: 1em;
-        margin-bottom: 1rem!important;
-        margin-right: 3rem!important;
-        margin-top: 3rem!important;
-    }
-
-    .detail-page.list-block hr{
-        min-height: 0;
-        margin: 0!important;;
-    }
-
-    .reviews-side h4{
-        text-align: start;
-    };
+.left-side-content-album-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
 }
+
+.left-side-content-art-name a{
+    color: #999;
+    font-weight: 300;
+    font-size: smaller;
+}
+
+.right-side-content-info.bars {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.bars .right-side-content-name {
+    width: 4rem;
+}
+
+.right-side-content-rating {
+    width: 2rem;
+    text-align: end;
+}
+
+.lists-page.top{
+    height: 5rem;
+}
+
+.lists-page.top .cont-header {
+    height:0;
+}
+
+.list-block{
+    color: #4a4a4a;
+}
+
+.lists-page.list-block{
+    margin-top:0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.hall-heading{
+    text-align: center;
+    text-transform: none;
+    background: -webkit-linear-gradient(60deg,#ffe172, #ff1223);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hall-heading .h1{
+    font-weight: 800;
+}
+
+.lists-page .left-side-content-row{
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.album-info.list-head.top {
+    height: 17rem;
+}
+
+.list-head .headline{
+    height:auto;
+    justify-content: end;
+}
+
+.list-head .headline-text{
+    text-shadow: 1px 1px 30px #333;
+}
+
+.list-detail-page.list-block{
+    min-height: 58rem;
+}
+
+.in_approve .left-side-content-rating{
+    height: 3.5rem;
+}
+
+.in_approve .left-side-content-rating.good {
+    background: none;
+    color: #6c3;
+    font-size: 18px;
+    align-items: end;
+    width: fit-content;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-left: 5rem;
+}
+
+.in_approve .left-side-content-rating.bad {
+    background: none;
+    color: #f00;
+    font-size: 18px;
+    align-items: end;
+    width: fit-content;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-left: 5rem;
+}
+
+.left-side-content-row.in_approve  {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.list-detail-page.list-block .left-side-content-icon {
+    height: 4rem;
+    width: 4rem;
+    overflow: hidden;
+    min-width: 4rem;
+    min-height: 4rem;
+}
+
+.list-detail-page.list-block img.left-side-content-img{
+    min-width: 4rem;
+    min-height: 4rem;
+}
+
+.list-detail-page.list-block .left-side-content-icon.armag{
+    border-radius: 50%;
+}
+
+.list-detail-page.list-block .left-side-content-row.armag {
+    border-bottom: none;
+}
+
+
+@media (min-width: 335px){
+    .in_approve .left-side-content-rating {
+        height: 2.5rem;
+    }
+}
+
+@media (min-width: 443px){
+    .detail-page.list-block{
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    span.left-side-content-name {
+        font-size: 20px;
+    }
+
+    img.left-side-content-img {
+        max-height: 4rem;
+    }
+
+    .lists-page.list-block{
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+
 
 @media (min-width: 576px){
     .top .cont-header{
@@ -677,6 +828,10 @@ span.reviews-number-bold {
         background-color: transparent;
         border-radius: 0;
         padding: 0;
+    }
+
+    .in_approve .left-side-content-rating {
+        height: 1.5rem;
     }
 
 }
@@ -732,17 +887,29 @@ span.reviews-number-bold {
     }
 }
 
-@media (min-width: 443px){
-    .detail-page.list-block{
-        padding-left: 3rem;
-        padding-right: 3rem;
+@media (min-width: 775px){
+    .main-footer{
+        flex-direction: row;
     }
 
-    span.review-name {
-        font-size: 20px;
+    .footer-description{
+        width: 50%;
     }
 
-    img.review-img {
-        max-height: 4rem;
+    .detail-page.list-block .vr{
+        min-height: 1em;
+        margin-bottom: 1rem!important;
+        margin-right: 3rem!important;
+        margin-top: 3rem!important;
     }
+
+    .detail-page.list-block hr{
+        min-height: 0;
+        margin: 0!important;;
+    }
+
+    .left-side-contents-side h4{
+        text-align: start;
+    };
 }
+

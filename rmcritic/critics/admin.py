@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Genre,Artist,Album,Magazine,Review,Track,ReviewTrack
+from .models import Genre,Artist,Album,Magazine,Review,Track,ReviewTrack,List
 
 @admin.action(description='Ativar revista')
 def make_active(modeladmin, request, queryset):
