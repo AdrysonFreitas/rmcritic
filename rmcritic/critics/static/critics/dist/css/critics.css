@@ -731,9 +731,8 @@ span.left-side-contents-number-bold {
     height: 3.5rem;
 }
 
-.in_approve .left-side-content-rating.good {
+.in_approve .left-side-content-rating{
     background: none;
-    color: #6c3;
     font-size: 18px;
     align-items: end;
     width: fit-content;
@@ -742,15 +741,17 @@ span.left-side-contents-number-bold {
     margin-left: 5rem;
 }
 
+.in_approve .left-side-content-rating.good {
+    color: #6c3;
+}
+
 .in_approve .left-side-content-rating.bad {
-    background: none;
     color: #f00;
-    font-size: 18px;
-    align-items: end;
-    width: fit-content;
-    font-size: 13px;
-    text-transform: uppercase;
-    margin-left: 5rem;
+}
+
+.in_approve .left-side-content-rating.neutre {
+    color: #4a4a4a;
+    margin-left: 0rem;
 }
 
 .left-side-content-row.in_approve  {

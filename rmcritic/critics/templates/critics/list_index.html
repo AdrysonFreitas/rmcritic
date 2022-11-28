@@ -22,7 +22,7 @@
                 {% if list.type == 'al' %}
                 <div class="left-side-content-row">
                     <div class="left-side-content-icon">
-                        <img src="{% if list.id == 1 %}{{ big_alb_by_avg.image }}{% elif list.id == 2 %}{{ big_alb_by_app.image }}{% elif list.id == 3 %}{{ big_alb_by_dis.image }}{% endif %}" class="left-side-content-img in_album" />
+                        <img src="{% if list.id == 1 %}{{ big_alb_by_avg.image }}{% elif list.id == 2 %}{{ big_alb_by_app.image }}{% elif list.id == 3 %}{{ big_alb_by_dis.image }}{% elif list.id == 12 %}{{ big_alb_by_cou.image }}{% endif %}" class="left-side-content-img in_album" />
                     </div>
                     <span class="left-side-content-name ms-3">
                             <a class="dotted-link" href="{% url 'list_detail' list.id %}">
@@ -64,7 +64,7 @@
                 {% if list.type == 'ar' %}
                 <div class="left-side-content-row">
                     <div class="left-side-content-icon">
-                        <img src="{% if list.id == 6 %}{{ big_art_by_avg.image }}{% elif list.id == 7 %}{{ big_art_by_app.image }}{% elif list.id == 8 %}{{ big_art_by_dis.image }}{% endif %}" class="left-side-content-img in_album" />
+                        <img src="{% if list.id == 6 %}{{ big_art_by_avg.image }}{% elif list.id == 7 %}{{ big_art_by_app.image }}{% elif list.id == 8 %}{{ big_art_by_dis.image }}{% elif list.id == 13 %}{{ big_art_by_cou.image }}{% endif %}" class="left-side-content-img in_album" />
                     </div>
                     <span class="left-side-content-name ms-3">
                             <a class="dotted-link" href="{% url 'list_detail' list.id %}">
@@ -85,7 +85,7 @@
                 {% if list.type == 'ma' %}
                 <div class="left-side-content-row">
                     <div class="left-side-content-icon">
-                        <img src="{% if list.id == 9 %}{{ big_mag_by_avg.image }}{% elif list.id == 10 %}{{ big_mag_by_app.image }}{% elif list.id == 11 %}{{ big_mag_by_dis.image }}{% endif %}" class="left-side-content-img in_album" />
+                        <img src="{% if list.id == 9 %}{{ big_mag_by_avg.image }}{% elif list.id == 10 %}{{ big_mag_by_app.image }}{% elif list.id == 11 %}{{ big_mag_by_dis.image }}{% elif list.id == 14 %}{{ big_mag_by_cou.image }}{% endif %}" class="left-side-content-img in_album" />
                     </div>
                     <span class="left-side-content-name ms-3">
                             <a class="dotted-link" href="{% url 'list_detail' list.id %}">
