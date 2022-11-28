@@ -68,7 +68,7 @@
                     {% elif list.id in app_lists %}
                     <div class="left-side-content-row in_approve albums-rated {% if item.rating < 50 %} bad {% elif item.rating > 69 %} good {% else %} mixed {% endif %}">
                         <div class="left-side-content-magazine">
-                            <div class="left-side-content-icon">
+                            <div class="left-side-content-icon {% if list.type == "ar" or list.type == "ma" %}armag{% endif %}">
                                 <img src="{{ item.image }}" class="left-side-content-img in_album" />
                             </div>
                             <div class="left-side-content-album-info ps-3">
@@ -105,10 +105,10 @@
                             {% endif %}
                         </div>
                     </div>
-                    {% else %}
+                    {% elif list.id in dis_lists %}
                     <div class="left-side-content-row in_approve albums-rated {% if item.rating < 50 %} bad {% elif item.rating > 69 %} good {% else %} mixed {% endif %}">
                         <div class="left-side-content-magazine">
-                            <div class="left-side-content-icon">
+                            <div class="left-side-content-icon {% if list.type == "ar" or list.type == "ma" %}armag{% endif %}">
                                 <img src="{{ item.image }}" class="left-side-content-img in_album" />
                             </div>
                             <div class="left-side-content-album-info ps-3">
@@ -143,6 +143,43 @@
                             {% else %}
                                 {{ item.disapprove_index }}% das revistas que avaliaram não gostaram
                             {% endif %}
+                        </div>
+                    </div>
+                    {% elif list.id in count_lists %}
+                    <div class="left-side-content-row in_approve albums-rated ">
+                        <div class="left-side-content-magazine">
+                            <div class="left-side-content-icon {% if list.type == "ar" or list.type == "ma" %}armag{% endif %}">
+                                <img src="{{ item.image }}" class="left-side-content-img in_album " />
+                            </div>
+                            <div class="left-side-content-album-info ps-3">
+                                <span class="left-side-content-name {% if list.type == "ar" or list.type == "ma" %}mb-2{% endif %}">
+                                    <a class="dotted-link" href="{% if list.type == "al" %}{% url 'album_detail' item.id %}{% elif list.type == "ar" %}{% url 'artist_detail' item.id %}{% elif list.type == "ma" %}{% url 'magazine_detail' item.id%}{% else %}#{% endif %}">
+                                        {% if item.name|first in '*' %}
+                                            {{ item.name|slice:"1:" }} (Revisitado)
+                                        {% else %}
+                                            {{ item.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                {% if list.type == 'al' or list.type == 'tr'%}
+                                <span class="left-side-content-art-name">
+                                    <a class="" href="{% if list.type == 'al'%}{% url 'artist_detail' item.artist.id %}{% else %}{% url 'artist_detail' item.parent_album.artist.id %}{% endif %}">
+                                        {% if list.type == 'al'%}
+                                            {{ item.artist.name }}
+                                        {% else %}
+                                            {{ item.parent_album.artist.name }}
+                                        {% endif %}
+                                    </a>
+                                </span>
+                                {% endif %}
+                                <div class="left-side-content-rating neutre">
+                                    {% if list.type == "ma" %}
+                                        {{ item.count_review }} álbuns avaliados
+                                    {% else %}
+                                        {{ item.count_review }} avaliações recebidas
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {% endif %}

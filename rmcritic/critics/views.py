@@ -215,7 +215,10 @@ class ListIndexView(generic.ListView):
         mag_by_dis = sorted(Magazine.objects.all(), key=lambda m: m.disapprove_index, reverse=True)[:10]
         tra_by_best = sorted(Track.objects.all(), key=lambda m: m.rating, reverse=True)[:10]
         tra_by_worst = sorted(Track.objects.all(), key=lambda m: m.rating, reverse=False)[:10]
-        
+        alb_by_cou = sorted(sorted(Album.objects.all(), key=lambda m: m.rating, reverse=True), key=lambda m: m.count_review, reverse=True)[:30]
+        art_by_cou = sorted(sorted(Artist.objects.all(), key=lambda m: m.avg, reverse=True), key=lambda m: m.count_review, reverse=True)[:20]
+        mag_by_cou = sorted(sorted(Magazine.objects.all(), key=lambda m: m.avg, reverse=True), key=lambda m: m.count_review, reverse=True)[:20]
+
         context['big_alb_by_avg'] = alb_by_avg[0]
         context['big_alb_by_app'] = alb_by_app[0]
         context['big_alb_by_dis'] = alb_by_dis[0]
@@ -227,6 +230,9 @@ class ListIndexView(generic.ListView):
         context['big_mag_by_dis'] = mag_by_dis[0]
         context['big_tra_by_best'] = tra_by_best[0]
         context['big_tra_by_worst'] = tra_by_worst[0]
+        context['big_alb_by_cou'] = alb_by_cou[0]
+        context['big_art_by_cou'] = art_by_cou[0]
+        context['big_mag_by_cou'] = mag_by_cou[0]
         return context
     
 class ListDetailView(generic.DetailView):
@@ -291,9 +297,26 @@ class ListDetailView(generic.DetailView):
             context['list_content'] = mag_by_dis
             items = list(mag_by_dis)
             context['page_obj'] = mag_by_dis
+        elif self.object.id == 12:
+            alb_by_cou = self.get_alb_by_cou()
+            context['list_content'] = alb_by_cou
+            items = list(alb_by_cou)
+            context['page_obj'] = alb_by_cou
+        elif self.object.id == 13:
+            art_by_cou = self.get_art_by_cou()
+            context['list_content'] = art_by_cou
+            items = list(art_by_cou)
+            context['page_obj'] = art_by_cou
+        elif self.object.id == 14:
+            mag_by_cou = self.get_mag_by_cou()
+            context['list_content'] = mag_by_cou
+            items = list(mag_by_cou)
+            context['page_obj'] = mag_by_cou
 
         context['avg_lists'] = [1,4,5,6,9]
         context['app_lists'] = [2,7,10]
+        context['dis_lists'] = [3,8,11]
+        context['count_lists'] = [12,13,14]
         context['random_album'] = random.choice(items)
 
         return context
@@ -334,7 +357,7 @@ class ListDetailView(generic.DetailView):
         return tra_by_worst
 
     def get_art_by_avg(self):
-        queryset = sorted(sorted(Artist.objects.all(), key=lambda m: m.avg, reverse=True), key=lambda m: m.avg, reverse=True)
+        queryset = sorted(Artist.objects.all(), key=lambda m: m.avg, reverse=True)
         paginator = Paginator(queryset,10) #paginate_by
         page = self.request.GET.get('page')
         art_by_avg = paginator.get_page(page)
@@ -355,7 +378,7 @@ class ListDetailView(generic.DetailView):
         return art_by_dis
 
     def get_mag_by_avg(self):
-        queryset = sorted(sorted(Magazine.objects.all(), key=lambda m: m.avg, reverse=True), key=lambda m: m.avg, reverse=True)
+        queryset = sorted(Magazine.objects.all(), key=lambda m: m.avg, reverse=True)
         paginator = Paginator(queryset,10) #paginate_by
         page = self.request.GET.get('page')
         mag_by_avg = paginator.get_page(page)
@@ -374,3 +397,24 @@ class ListDetailView(generic.DetailView):
         page = self.request.GET.get('page')
         mag_by_dis = paginator.get_page(page)
         return mag_by_dis
+
+    def get_alb_by_cou(self):
+        queryset = sorted(sorted(Album.objects.all(), key=lambda m: m.rating, reverse=True), key=lambda m: m.count_review, reverse=True)[:30]
+        paginator = Paginator(queryset,10) #paginate_by
+        page = self.request.GET.get('page')
+        alb_by_cou = paginator.get_page(page)
+        return alb_by_cou
+
+    def get_art_by_cou(self):
+        queryset = sorted(sorted(Artist.objects.all(), key=lambda m: m.avg, reverse=True), key=lambda m: m.count_review, reverse=True)[:20]
+        paginator = Paginator(queryset,10) #paginate_by
+        page = self.request.GET.get('page')
+        art_by_cou = paginator.get_page(page)
+        return art_by_cou
+
+    def get_mag_by_cou(self):
+        queryset = sorted(sorted(Magazine.objects.all(), key=lambda m: m.avg, reverse=True), key=lambda m: m.count_review, reverse=True)[:20]
+        paginator = Paginator(queryset,10) #paginate_by
+        page = self.request.GET.get('page')
+        mag_by_cou = paginator.get_page(page)
+        return mag_by_cou
