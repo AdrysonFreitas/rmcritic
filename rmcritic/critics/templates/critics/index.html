@@ -51,7 +51,7 @@
                     {% for album in latest_album_list %}
                         {% if album.rating != None %}
                             <div class="card col-md-4">
-                                <article class="postcard {% if album.rating < 50 %} bad {% elif album.rating > 69 %} good {% else %} mixed {% endif %} detail_s_color .small">
+                                <article class="postcard {% if album.rating < 50 and album.rating >= 0 %} bad {% elif album.rating > 69 and album.rating < 101 %} good {% elif album.rating > 49 and album.rating < 70 %} mixed {% else%} neutre {% endif %} detail_s_color .small">
                                     <a class="postcard__img_link" href="{% url 'album_detail' album.id %}">
                                         <img class="postcard__img" src="{{ album.image }}" alt="{{ album.artist }} - {{ album.name}}" />
                                     </a>
@@ -73,7 +73,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <h1 class="rate">{{ album.rating }}</h1>
+                                                    <h1 class="rate">{% if album.rating < 0 %} - {% else %} {{ album.rating }} {% endif %}</h1>
                                                 </td>
                                             </tr>
                                             <tr>

@@ -42,7 +42,7 @@ class AlbumDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(AlbumDetailView, self).get_context_data(**kwargs)
         context['tracklist'] = sorted(Track.objects.filter(parent_album=self.get_object()).order_by('place_in_tracklist'), key=lambda m: m.rating, reverse=True)
-        
+
         revs = Review.objects.filter(album=self.get_object())
         good = 0
         mixed = 0
@@ -343,14 +343,14 @@ class ListDetailView(generic.DetailView):
         return alb_by_dis
 
     def get_tra_by_best(self):
-        queryset = sorted(sorted(Track.objects.all(), key=lambda m: m.rating, reverse=True), key=lambda m: m.rating, reverse=True)[:10]
+        queryset = sorted(sorted(Track.objects.all(), key=lambda m: m.rating, reverse=True), key=lambda m: m.rating, reverse=True)[:20]
         paginator = Paginator(queryset,10) #paginate_by
         page = self.request.GET.get('page')
         tra_by_best = paginator.get_page(page)
         return tra_by_best
 
     def get_tra_by_worst(self):
-        queryset = sorted(sorted(Track.objects.all(), key=lambda m: m.rating, reverse=True), key=lambda m: m.rating, reverse=False)[:10]
+        queryset = sorted(sorted(Track.objects.all(), key=lambda m: m.rating, reverse=True), key=lambda m: m.rating, reverse=False)[:20]
         paginator = Paginator(queryset,10) #paginate_by
         page = self.request.GET.get('page')
         tra_by_worst = paginator.get_page(page)

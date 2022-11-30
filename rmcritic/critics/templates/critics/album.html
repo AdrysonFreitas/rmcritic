@@ -8,12 +8,12 @@
     <div class="container cont-header p-0">
         {% include 'critics/header.html' %}</div>
 
-    <div class="bg-top {% if album.rating < 50 %} bad {% elif album.rating > 69 %} good {% else %} mixed {% endif %}"></div>
+    <div class="bg-top {% if album.rating < 50 and album.rating >= 0 %} bad {% elif album.rating > 69 and album.rating < 101 %} good {% elif album.rating > 49 and album.rating < 70 %} mixed {% else%} neutre {% endif %}"></div>
 
     <div class="headline">
         <div class="album-info headline-text">
             <div class="badge-div">
-                <span class="badge badge-primary {% if album.rating < 50 %} bad {% elif album.rating > 69 %} good {% else %} mixed {% endif %}">{% if album.tracks > 8 %} LP {% else %} EP {% endif %}</span></h3>
+                <span class="badge badge-primary {% if album.rating < 50 and album.rating >= 0 %} bad {% elif album.rating > 69 and album.rating < 101 %} good {% elif album.rating > 49 and album.rating < 70 %} mixed {% else%} neutre {% endif %}">{% if album.tracks > 8 %} LP {% else %} EP {% endif %}</span></h3>
             </div>
             <span class="genre-list mb-2">{{ album.genre_list }}</span>
             <span class="right-side-contents-number">{{ album.tracks }} faixas</span>
@@ -27,7 +27,7 @@
             </h1>
         </div>
         <div class="headline-rating">
-            <span class="rating-number">{{ album.rating }}</span>
+            <span class="rating-number">{% if album.rating < 0 %} - {% else %} {{ album.rating }} {% endif %}</span>
             <span class="left-side-contents-number lead">Baseado em <span class="left-side-contents-number-bold">{{ album.count_review }}</span> avaliações</span>
         </div>
         <div class="headline-img">
@@ -54,8 +54,8 @@
                                 <a class="dotted-link" href="{% url 'magazine_detail' review.magazine.id %}">{{ review.magazine.name }}</a>
                             </span>
                         </div>
-                        <div class="left-side-content-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %}">
-                            {{ review.rating }}
+                        <div class="left-side-content-rating {% if review.rating < 50  and review.rating >= 0%} bad {% elif review.rating > 69 and review.rating < 101 %} good {% elif review.rating > 49 and review.rating < 70 %} mixed {% else%} neutre {% endif %}">
+                            {% if review.rating < 0 %} - {% else %} {{ review.rating }} {% endif %}
                         </div>
                     </div>
                 {% endfor %}
@@ -78,7 +78,7 @@
                                 {% endif %}
                             {% endif %}
                         </div>
-                        <div class="right-side-content-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
+                        <div class="right-side-content-rating {% if track.rating < 50 and track.rating >= 0 %} bad {% elif track.rating > 69 and track.rating < 101 %} good {% elif track.rating > 49 and track.rating < 70 %} mixed {% else%} neutre {% endif %} ms-2">{% if track.rating < 0 %} - {% else %} {{ track.rating }} {% endif %}</div>
                     </div>
                 {% endfor %}
             </div>

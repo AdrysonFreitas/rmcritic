@@ -510,7 +510,7 @@ span.right-side-content-name {
 .right-side-content-rating.neutre{
     background: none;
     font-weight: 600;
-    color: #6c3;
+    color: #cfcfcf;;
 }
 
 .right-side-contents-side h4, .left-side-contents-side h4{
@@ -543,6 +543,11 @@ span.right-side-content-name {
 .left-side-content-row.bad{
     background: none;
     border-bottom: 2px solid #f00;
+}
+
+.left-side-content-row.neutre{
+    background: none;
+    border-bottom: 2px solid #cfcfcf;;
 }
 
 .left-side-content-magazine {
@@ -752,6 +757,11 @@ span.left-side-contents-number-bold {
 .in_approve .left-side-content-rating.neutre {
     color: #4a4a4a;
     margin-left: 0rem;
+    background: none;
+}
+
+.left-side-content-rating.neutre {
+    background: #cfcfcf;
 }
 
 .left-side-content-row.in_approve  {

@@ -23,7 +23,8 @@ class Artist(models.Model):
 
     @property
     def avg(self):
-        r = self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        r = self.reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
+        r = round(r)
         if r is None:
             r = 0
         return r
@@ -90,9 +91,11 @@ class Album(models.Model):
 
     @property
     def rating(self):
-        r = self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
-        if r == None:
-            r = 0
+        if self.reviews.aggregate(count_review=Count('rating'))['count_review'] > 4: 
+            r = self.reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
+            r = round(r)
+        else:
+            r = -1
         return r
 
     @property
@@ -167,9 +170,10 @@ class Track(models.Model):
 
     @property
     def rating(self):
-        r = self.reviews.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        r = self.reviews.aggregate(avg_rating=Avg('rating'))['avg_rating']
+        r = round(r)
         if r is None:
-            r = 0
+            r = -1
         return r
 
     class Meta:
@@ -248,7 +252,19 @@ class Review(models.Model):
     artist = models.ForeignKey(Artist,
         on_delete=models.CASCADE,
         related_name='reviews',)
-    rating = models.IntegerField(default=0)
+    rating = models.IntegerField(default=0, null=True)
+
+    @property
+    def get_rating(self):
+        r = self.parent_review.aggregate(avg_rating=Cast(Round(Avg('rating')), output_field=IntegerField()))['avg_rating']
+        return r
+
+    def save(self, *args, **kwarg):
+        if self.pk == None:
+            super(Review, self).save(*args, **kwarg)
+        else:
+            self.rating = self.get_rating
+            super(Review, self).save(*args, **kwarg)
     
     class Meta:
         ordering = ['-rating']

@@ -8,12 +8,12 @@
     <div class="container cont-header p-0">
         {% include 'critics/header.html' %}</div>
 
-    <div class="bg-top {% if artist.avg < 50 %} bad {% elif artist.avg > 69 %} good {% else %} mixed {% endif %}"></div>
+    <div class="bg-top {% if artist.avg < 50 and artist.avg >= 0 %} bad {% elif artist.avg > 69 and artist.avg < 101 %} good {% elif artist.avg > 49 and artist.avg < 70 %} mixed {% else%} neutre {% endif %}"></div>
 
     <div class="headline">
         <div class="album-info headline-text">
             <!--<div class="badge-div">
-                <span class="badge badge-primary {% if artist.avg < 50 %} bad {% elif artist.avg > 69 %} good {% else %} mixed {% endif %}">{% if album.tracks > 8 %} LP {% else %} EP {% endif %}</span></h3>
+                <span class="badge badge-primary {% if artist.avg < 50 and artist.avg >= 0 %} bad {% elif artist.avg > 69 and artist.avg < 101 %} good {% elif artist.avg > 49 and artist.avg < 70 %} mixed {% else%} neutre {% endif %}">{% if album.tracks > 8 %} LP {% else %} EP {% endif %}</span></h3>
             </div>-->
             <span class="genre-list mb-2">{{ artist.genre_list }}</span>
             <span class="right-side-contents-number">{{ artist.count_albums }} {% if artist.count_albums != 1 %} trabalhos {% else %} trabalho {% endif %}</span>
@@ -42,7 +42,7 @@
                 <div class="left-side-contents-display">
                     {% for work in artist.albums.all %}
                         {% if work.tracks > 8 %}
-                        <div class="left-side-content-row {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
+                        <div class="left-side-content-row {% if work.rating < 50 and work.rating >= 0 %} bad {% elif work.rating > 69 and work.rating < 101 %} good {% elif work.rating > 49 and work.rating < 70 %} mixed {% else%} neutre {% endif %}">
                             <div class="left-side-content-magazine">
                                 <div class="left-side-content-icon">
                                     <img src="{{ work.image }}" class="left-side-content-img in_album" />
@@ -57,7 +57,7 @@
                                     </a>
                                 </span>
                             </div>
-                            <div class="left-side-content-rating {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
+                            <div class="left-side-content-rating {% if work.rating < 50 and work.rating >= 0 %} bad {% elif work.rating > 69 and work.rating < 101 %} good {% elif work.rating > 49 and work.rating < 70 %} mixed {% else%} neutre {% endif %}">
                                 {{ work.rating }}
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                 <div>
                     {% for work in artist.albums.all %}
                         {% if work.tracks <= 8 %}
-                        <div class="left-side-content-row {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
+                        <div class="left-side-content-row {% if work.rating < 50 and work.rating >= 0 %} bad {% elif work.rating > 69 and work.rating < 101 %} good {% elif work.rating > 49 and work.rating < 70 %} mixed {% else%} neutre {% endif %}">
                             <div class="left-side-content-magazine">
                                 <div class="left-side-content-icon">
                                     <img src="{{ work.image }}" class="left-side-content-img in_album" />
@@ -90,8 +90,8 @@
                                     </a>
                                 </span>
                             </div>
-                            <div class="left-side-content-rating {% if work.rating < 50 %} bad {% elif work.rating > 69 %} good {% else %} mixed {% endif %}">
-                                {{ work.rating }}
+                            <div class="left-side-content-rating {% if work.rating < 50 and work.rating >= 0 %} bad {% elif work.rating > 69 and work.rating < 101 %} good {% elif work.rating > 49 and work.rating < 70 %} mixed {% else%} neutre {% endif %}">
+                                {% if work.rating < 0 %} - {% else %} {{ work.rating }} {% endif %}
                             </div>
                         </div>
                         {% endif %}
@@ -118,7 +118,7 @@
                                     {% endif %}
                                 {% endif %}
                             </div>
-                            <div class="right-side-content-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
+                            <div class="right-side-content-rating {% if track.rating < 50 and track.rating >= 0 %} bad {% elif track.rating > 69 and track.rating < 101 %} good {% elif track.rating > 49 and track.rating < 70 %} mixed {% else%} neutre {% endif %} ms-2">{% if track.rating < 0 %} - {% else %} {{ track.rating }} {% endif %}</div>
                         </div>
                     {% endfor %}
                 </div>
@@ -138,7 +138,7 @@
                                     {% endif %}
                                 {% endif %}
                             </div>
-                            <div class="right-side-content-rating {% if track.rating < 50 %} bad {% elif track.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ track.rating }}</div>
+                            <div class="right-side-content-rating {% if track.rating < 50 and track.rating >= 0 %} bad {% elif track.rating > 69 and track.rating < 101 %} good {% elif track.rating > 49 and track.rating < 70 %} mixed {% else%} neutre {% endif %} ms-2">{% if track.rating < 0 %} - {% else %} {{ track.rating }} {% endif %}</div>
                         </div>
                     {% endfor %}
                 </div>
@@ -194,7 +194,7 @@
                                     {% endif %}
                                 </a></span>
                             </div>
-                            <div class="right-side-content-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ review.rating }}</div>
+                            <div class="right-side-content-rating {% if review.rating < 50 and review.rating >= 0 %} bad {% elif review.rating > 69 and review.rating < 101 %} good {% elif review.rating > 49 and review.rating < 70 %} mixed {% else%} neutre {% endif %} ms-2">{{ review.rating }}</div>
                         </div>
                     {% endfor %}
                 </div>
@@ -216,7 +216,7 @@
                                     {% endif %}
                                 </a></span>
                             </div>
-                            <div class="right-side-content-rating {% if review.rating < 50 %} bad {% elif review.rating > 69 %} good {% else %} mixed {% endif %} ms-2">{{ review.rating }}</div>
+                            <div class="right-side-content-rating {% if review.rating < 50 and review.rating >= 0 %} bad {% elif review.rating > 69 and review.rating < 101 %} good {% elif review.rating > 49 and review.rating < 70 %} mixed {% else%} neutre {% endif %} ms-2">{{ review.rating }}</div>
                         </div>
                     {% endfor %}
                 </div>

@@ -60,7 +60,7 @@ class TrackReviewInline(admin.TabularInline):
     extra = 1
 
 class ReviewAdmin(admin.ModelAdmin):
-    fields = ['magazine', 'album','artist','rating']
+    fields = ['magazine', 'album','artist']
     list_display = ('album','magazine','rating')
     inlines = [TrackReviewInline]
     list_filter = ['magazine','artist','album']
@@ -70,4 +70,4 @@ class ReviewAdmin(admin.ModelAdmin):
         context['adminform'].form.fields['magazine'].queryset = Magazine.objects.filter(isActive=True)
         return super(ReviewAdmin, self).render_change_form(request, context, args, kwargs) 
 
-admin.site.register(Review, ReviewAdmin)
+admin.site.register(Review,ReviewAdmin)
