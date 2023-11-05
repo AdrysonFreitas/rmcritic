@@ -12,4 +12,4 @@ Desenvolvido em [Python](https://www.python.org) usando a framework [Django](htt
 
 Você pode acessar ao site [aqui](https://www.djangoproject.com).
 
-[Image](https://i.postimg.cc/43G4ZCfz/image.png)
+![Website image](https://i.postimg.cc/43G4ZCfz/image.png)
